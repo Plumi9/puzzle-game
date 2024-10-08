@@ -120,7 +120,6 @@ const rainGif = document.getElementById("rain-gif");
 
 // Function to toggle the rain visibility
 const toggleRain = () => {
-    console.log(rainGif.classList);
     rainGif.classList.toggle("hidden");
 };
 
@@ -133,10 +132,7 @@ setInterval(() => {
 toggleRain(); // Start with rain visible
 
 const backgroundMusic = new Audio("./sprites/song.mp3");
-
-// Set the volume (optional)
-backgroundMusic.volume = 0.005; // Adjust volume between 0.0 and 1.0
-
+backgroundMusic.volume = 0.005;
 // Function to start playing the background music
 const playBackgroundMusic = () => {
     backgroundMusic.loop = true; // Set it to loop
@@ -144,9 +140,13 @@ const playBackgroundMusic = () => {
         console.error("Error playing audio:", error);
     });
 };
-
-// Start the background music when the game starts
-playBackgroundMusic();
+// Add event listener for start button
+const startButton = document.getElementById("start-button");
+startButton.addEventListener("click", () => {
+    playBackgroundMusic(); // Play the background music
+    gameLoop.start(); // Start your game loop
+    startButton.style.display = "none"; // Hide the start button
+});
 
 const gameLoop = new GameLoop(update, draw)
 gameLoop.start();
