@@ -13,7 +13,6 @@ import { Animations } from "./src/Animations.js";
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 
-
 const skySprite = new Sprite({
     resource: resources.images.sky,
     frameSize: new Vector2(320, 180),
@@ -117,5 +116,22 @@ const draw = () => {
     hero.drawImage(ctx, heroPosX, heroPosY);
 }
 
+const rainGif = document.getElementById("rain-gif");
+
+// Function to toggle the rain visibility
+const toggleRain = () => {
+    console.log(rainGif.classList);
+    rainGif.classList.toggle("hidden");
+};
+
+// Set interval for rain to appear/disappear
+setInterval(() => {
+    toggleRain(); // Show/Hide rain
+}, 1 * 5 * 1000); // 5 minutes in milliseconds
+
+// Initially show rain
+toggleRain(); // Start with rain visible
+
 const gameLoop = new GameLoop(update, draw)
 gameLoop.start();
+
