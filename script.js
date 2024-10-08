@@ -132,6 +132,21 @@ setInterval(() => {
 // Initially show rain
 toggleRain(); // Start with rain visible
 
+const backgroundMusic = new Audio("./sprites/song.mp3");
+
+// Set the volume (optional)
+backgroundMusic.volume = 0.005; // Adjust volume between 0.0 and 1.0
+
+// Function to start playing the background music
+const playBackgroundMusic = () => {
+    backgroundMusic.loop = true; // Set it to loop
+    backgroundMusic.play().catch(error => {
+        console.error("Error playing audio:", error);
+    });
+};
+
+// Start the background music when the game starts
+playBackgroundMusic();
+
 const gameLoop = new GameLoop(update, draw)
 gameLoop.start();
-
