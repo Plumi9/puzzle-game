@@ -13,7 +13,6 @@ export class GameLoop{
     }
 
     mainLoop = (timestamp) => {
-        console.log("hellomainloop")
         if (!this.isRunning) return;
 
         let deltaTime = timestamp - this.lastFrameTime;
