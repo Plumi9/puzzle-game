@@ -37,6 +37,10 @@ const hero = new Sprite({
         walkUp: new FrameIndexPattern(WALK_UP),
         walkLeft: new FrameIndexPattern(WALK_LEFT),
         walkRight: new FrameIndexPattern(WALK_RIGHT),
+        standDown: new FrameIndexPattern(STAND_DOWN),
+        standUp: new FrameIndexPattern(STAND_UP),
+        standLeft: new FrameIndexPattern(STAND_LEFT),
+        standRight: new FrameIndexPattern(STAND_RIGHT),
     })
 })
 
@@ -64,6 +68,10 @@ const update = (delta) => {
 
 const tryMove = () => {
     if(!input.direction){
+        if(heroFacing === LEFT){hero.animations.play("standLeft")}
+        if(heroFacing === RIGHT){hero.animations.play("standRight")}
+        if(heroFacing === UP){hero.animations.play("standUp")}
+        if(heroFacing === DOWN){hero.animations.play("standDown")}
         return;
     }
 
@@ -74,15 +82,20 @@ const tryMove = () => {
 
     if(input.direction === DOWN){
         nextY += gridSize;
+        hero.animations.play("walkDown");
     }
     if(input.direction === UP){
         nextY -= gridSize;
+        hero.animations.play("walkUp");
+
     }
     if(input.direction === LEFT){
         nextX -= gridSize;
+        hero.animations.play("walkLeft");
     }
     if(input.direction === RIGHT){
         nextX += gridSize;
+        hero.animations.play("walkRight");
     }
     heroFacing = input.direction ?? heroFacing;
 

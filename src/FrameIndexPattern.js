@@ -16,7 +16,7 @@ export class FrameIndexPattern {
     }
 
     step(delta){
-        this.current += delta;
+        this.currentTime += delta;
         if (this.currentTime >= this.duration){
             this.currentTime = 0;
         }
