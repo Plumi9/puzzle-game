@@ -9,7 +9,7 @@ import { walls } from "./src/levels/level1.js";
 import { FrameIndexPattern } from "./src/FrameIndexPattern.js";
 import { STAND_DOWN, STAND_LEFT, STAND_RIGHT, STAND_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, WALK_UP } from "./src/objects/Hero/heroAnimations.js";
 import { Animations } from "./src/Animations.js";
-
+console.log("HEEELO");
 const canvas = document.querySelector("#game-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -93,6 +93,7 @@ const tryMove = () => {
 }
 
 const draw = () => {
+    console.log("HELLO2");
     skySprite.drawImage(ctx, 0, 0);
     groundSprite.drawImage(ctx, 0, 0);
     //testSprite.drawImage(ctx,0,0);

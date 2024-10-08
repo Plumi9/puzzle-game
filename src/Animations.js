@@ -5,6 +5,7 @@ export class Animations{
     }
 
     get frame(){
+        console.log(this.patterns);
         return this.patterns[this.activeKey].frame;
     }
 
