@@ -1,5 +1,5 @@
+import { events } from "./Events.js";
 import {Vector2} from "./Vector2.js";
-import {events} from "./Events.js";
 
 export class GameObject {
     constructor({ position }) {
@@ -64,10 +64,11 @@ export class GameObject {
         this.children.push(gameObject);
     }
 
-    removeChild(gameObject) {
+    removeChild(gameObject){
+        console.log("gameObject removeChild", gameObject);
         events.unsubscribe(gameObject);
         this.children = this.children.filter(g => {
-        return gameObject !== g;
+            return gameObject !== g;
         })
     }
 }

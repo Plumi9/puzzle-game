@@ -1,6 +1,7 @@
+import { GameObject } from "./GameObject.js";
 import {Vector2} from "./Vector2.js";
 
-export class Sprite{
+export class Sprite extends GameObject{
     constructor({
         resource, // image we want to draw
         frameSize, // size of the crop of the image
@@ -11,16 +12,17 @@ export class Sprite{
         position, // where to draw it (top left corner)
         animations,
     }) {
-    this.resource = resource;
-    this.frameSize = frameSize ?? new Vector2(16,16);
-    this.hFrames = hFrames ?? 1;
-    this.vFrames = vFrames ?? 1;
-    this.frame = frame ?? 0;
-    this.frameMap = new Map();
-    this.scale = scale ?? 1;
-    this.position = position ?? new Vector2(0,0);
-    this.animations = animations ?? null;
-    this.buildFrameMap();
+        super({});
+        this.resource = resource;
+        this.frameSize = frameSize ?? new Vector2(16,16);
+        this.hFrames = hFrames ?? 1;
+        this.vFrames = vFrames ?? 1;
+        this.frame = frame ?? 0;
+        this.frameMap = new Map();
+        this.scale = scale ?? 1;
+        this.position = position ?? new Vector2(0,0);
+        this.animations = animations ?? null;
+        this.buildFrameMap();
     }
 
     buildFrameMap() {

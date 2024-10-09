@@ -2,16 +2,19 @@ class Resources{
     constructor(){
         // Everything we plan to download
         this.toLoad = {
-            // sky: "./../sprites/sky.png",
-            // ground: "./../sprites/ground.png",
-            // hero: "./../sprites/hero-sheet.png",
-            // shadow: "./../sprites/shadow.png",
-            // untitled: "./../sprites/untitled.png",
-            sky: "./sprites/sky.png",
-            ground: "./sprites/ground.png",
             hero: "./sprites/hero-sheet.png",
             shadow: "./sprites/shadow.png",
+            
+            rod: "./sprites/rod.png",
+            exit: "./sprites/exit.png",
+
             untitled: "./sprites/untitled.png",
+
+            sky: "./sprites/sky.png",
+            ground: "./sprites/ground.png",
+
+            cave: "./sprites/cave.png",
+            caveGround: "./sprites/cave-ground.png",
         };
 
         // A bucket to keep all images
