@@ -5,6 +5,11 @@ html, body{
     image-rendering: pixelated;
 }
 
+@font-face {
+    font-family: fontRetroGaming;
+    src: url("/fonts/Retro\ Gaming.ttf");
+}
+
 canvas{
     width: 100%;
     background: teal;

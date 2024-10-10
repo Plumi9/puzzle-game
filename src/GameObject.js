@@ -7,6 +7,8 @@ export class GameObject {
         this.children = [];
         this.parent = null;
         this.hasReadyBeenCalled = false;
+        this.isSolid = false;
+        this.drawLayer = null;
     }
 
     // First entry point of the loop
@@ -34,7 +36,7 @@ export class GameObject {
         // ...
     }
 
-  /* draw entry */
+    /* draw entry */
     draw(ctx, x, y) {
         const drawPosX = x + this.position.x;
         const drawPosY = y + this.position.y;
@@ -43,7 +45,16 @@ export class GameObject {
         this.drawImage(ctx, drawPosX, drawPosY);
 
         // Pass on to children
-        this.children.forEach((child) => child.draw(ctx, drawPosX, drawPosY));
+        this.getDrawChildrenOrdered().forEach((child) => child.draw(ctx, drawPosX, drawPosY));
+    }
+
+    getDrawChildrenOrdered(){
+        return [...this.children].sort((a,b) => {
+            if(b.drawLayer === "FLOOR"){
+                return 1;
+            }
+            return (a.position.y > b.position.y ? 1 : -1);
+        })
     }
 
     drawImage(ctx, drawPosX, drawPosY) {

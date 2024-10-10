@@ -1,6 +1,6 @@
 import { events } from "../../Events.js";
 import { GameObject } from "../../GameObject.js";
-import { resources } from "../../Resource.js";
+import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 

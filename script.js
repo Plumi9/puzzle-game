@@ -16,7 +16,8 @@ mainScene.setLevel(new CaveLevel1());
 
 // Establish update and draw loop
 const update = (delta) => {
-    mainScene.stepEntry(delta, mainScene)
+    mainScene.stepEntry(delta, mainScene);
+    mainScene.input?.update();
 }
 const draw = () => {
 
@@ -35,7 +36,7 @@ const draw = () => {
     }
 
     // draw objects in the mounted scene
-    mainScene.draw(ctx, 0, 0);
+    mainScene.drawObjects(ctx);
 
     // Restore to original state
     ctx.restore();
