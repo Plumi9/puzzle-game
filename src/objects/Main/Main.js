@@ -2,6 +2,7 @@ import { Camera } from "../../Camera.js";
 import { events } from "../../Events.js";
 import { GameObject } from "../../GameObject.js";
 import { Input } from "../../Input.js";
+import { storyFlags } from "../../StoryFlags.js";
 import { Inventory } from "../Inventory/Inventory.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 
@@ -15,16 +16,43 @@ export class Main extends GameObject{
 
     ready(){
         const inventory = new Inventory();
-        this.addChild(inventory);
+        this.addChild(inventory);        
 
-        setTimeout(() => {
-            const textbox = new SpriteTextString("HEEEEEEEEEEEEEEEEEEELLO Hello World! Hello World! Hello World!");
-            this.addChild(textbox);
-        },300);
-        
-
+        // Change Level handlers
         events.on("CHANGE_LEVEL", this, newLevelInstance => {
             this.setLevel(newLevelInstance);
+        })
+
+        // Launch textbox handler
+        events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
+
+            if(typeof withObject.getContent === "function"){
+                const content = withObject.getContent();
+
+                if(!content){
+                    return;
+                }
+
+                // Potentially add a story flag
+                if(content.addsFlag){
+                    console.log("ADD FLAG", content.addsFlag);
+                    storyFlags.add(content.addsFlag);
+                }
+
+                // Show the textbox
+                const textbox = new SpriteTextString({
+                    portraitFrame: content.portraitFrame,
+                    string: content.string,
+                });
+                this.addChild(textbox);
+                events.emit("START_TEXT_BOX");
+    
+                // Unsubscribe from this textbox after its destroyed
+                const endingSub = events.on("END_TEXT_BOX", this, () => {
+                    textbox.destroy();
+                    events.off(endingSub);
+                })
+            }
         })
     }
 

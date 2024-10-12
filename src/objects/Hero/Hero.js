@@ -59,13 +59,27 @@ export class Hero extends GameObject{
         this.destinationPosition = this.position.duplicate();
         this.itemPickUpTime = 0;
         this.itemPickUpShell = null;
+        this.isLocked = false;
 
         events.on("HERO_PICKS_UP_ITEM", this, data => {
             this.onPickupItem(data)
         })
     }
 
+    ready(){
+        events.on("START_TEXT_BOX",this, () => {
+            this.isLocked = true;
+        })
+        events.on("END_TEXT_BOX", this, () => {
+            this.isLocked = false;
+        })
+    }
+
     step(delta, root){
+        // Don't do anything when locked
+        if(this.isLocked){
+            return;
+        }
 
         // stop movement when picking up
         if(this.itemPickUpTime > 0){
@@ -78,9 +92,15 @@ export class Hero extends GameObject{
         const input = root.input;
         /**@param {Input} input */
         
-        if(input.getActionJustPressed("Space")){
-            console.log("ACTION!!");
-            events.emit("HERO_REQUESTS_ACTION");
+        if(input?.getActionJustPressed("Space")){
+
+            // Look for an object at the next space the player is facing
+            const objectAtPosition = this.parent.children.find(child => {
+                return child.position.matches(this.position.toNeighbor(this.facingDirection))
+            })
+            if(objectAtPosition){
+                events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+            }
         }
 
         const distance = moveTowards(this, this.destinationPosition, 1)

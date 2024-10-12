@@ -45,34 +45,34 @@ const draw = () => {
     mainScene.drawForeground(ctx);
 }
 
-// Rain Inmplementation
-const rainGif = document.getElementById("rain-gif");
-// toggle the rain visibility
-const toggleRain = () => {
-    rainGif.classList.toggle("hidden");
-};
-// Set interval for rain to appear/disappear
-setInterval(() => {
-    toggleRain();
-}, 1 * 5 * 1000); // 5000 ms
-toggleRain(); // Start with rain visible
+// // Rain Inmplementation
+// const rainGif = document.getElementById("rain-gif");
+// // toggle the rain visibility
+// const toggleRain = () => {
+//     rainGif.classList.toggle("hidden");
+// };
+// // Set interval for rain to appear/disappear
+// setInterval(() => {
+//     toggleRain();
+// }, 1 * 5 * 1000); // 5000 ms
+// toggleRain(); // Start with rain visible
 
-// Background music implementation
-const backgroundMusic = new Audio("./sprites/song.mp3");
-backgroundMusic.volume = 0.01;
-// Function to start the background music
-const playBackgroundMusic = () => {
-    backgroundMusic.loop = true; // Set it to loop
-    backgroundMusic.play().catch(error => {
-        console.error("Error playing audio:", error);
-    });
-};
-// Add event listener for start button
-const startButton = document.getElementById("start-button");
-startButton.addEventListener("click", () => {
-    playBackgroundMusic(); // Play the background music
-    startButton.style.display = "none"; // Hide the start button
-});
+// // Background music implementation
+// const backgroundMusic = new Audio("./sprites/song.mp3");
+// backgroundMusic.volume = 0.01;
+// // Function to start the background music
+// const playBackgroundMusic = () => {
+//     backgroundMusic.loop = true; // Set it to loop
+//     backgroundMusic.play().catch(error => {
+//         console.error("Error playing audio:", error);
+//     });
+// };
+// // Add event listener for start button
+// const startButton = document.getElementById("start-button");
+// startButton.addEventListener("click", () => {
+//     playBackgroundMusic(); // Play the background music
+//     startButton.style.display = "none"; // Hide the start button
+// });
 
 // Starting the game
 const gameLoop = new GameLoop(update, draw)
