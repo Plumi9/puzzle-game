@@ -19,6 +19,8 @@ import {
 } from "./heroAnimations.js";
 import {moveTowards} from "../../helpers/moveTowards.js";
 import { events } from "../../Events.js";
+import { Shovel } from "../Shovel/Shovel.js";
+import { Npc } from "../NPC/Npc.js"
 
 export class Hero extends GameObject{
     constructor(x, y){
@@ -99,7 +101,10 @@ export class Hero extends GameObject{
                 return child.position.matches(this.position.toNeighbor(this.facingDirection))
             })
             if(objectAtPosition){
-                events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+                console.log(objectAtPosition);
+                if(objectAtPosition instanceof Npc){
+                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+                }
             }
         }
 

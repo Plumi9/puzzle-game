@@ -13,21 +13,15 @@ export class Inventory extends GameObject{
         this.drawLayer = "HUD";
         
         this.nextId = 0;
-        this.items = [
-        {
-            id: -1,
-            image: resources.images.rod
-        },
-        {
-            id: -2,
-            image: resources.images.rod
-        },]
+        this.items = [];
         // react to player picking up an item
         events.on("HERO_PICKS_UP_ITEM", this, data => {
+            const item_image = data.image
             this.nextId += 1;
             this.items.push({
                 id: this.nextId,
-                image: resources.images.rod,
+                //image: resources.images.rod,
+                image: item_image,
             })
             this.renderInventory();
         })

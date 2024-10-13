@@ -2,6 +2,7 @@ import { GameLoop } from "./src/GameLoop.js";
 import { Vector2 } from "./src/Vector2.js";
 import { Main } from "./src/objects/Main/Main.js";
 import { CaveLevel1 } from "./src/levels/CaveLevel1.js";
+import { OutdoorLevel1 } from "./src/levels/OutdoorLevel1.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -11,7 +12,7 @@ const ctx = canvas.getContext("2d");
 const mainScene = new Main({
     position: new Vector2(0,0)
 })
-mainScene.setLevel(new CaveLevel1());
+mainScene.setLevel(new OutdoorLevel1());
 //mainScene.setLevel(new OutdoorLevel1());
 
 // Establish update and draw loop

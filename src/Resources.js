@@ -5,18 +5,19 @@ class Resources{
             // Hero
             hero: "./sprites/hero-sheet.png",
             shadow: "./sprites/shadow.png",
-            
-            rod: "./sprites/rod.png",
+
             exit: "./sprites/exit.png",
 
             // Maps
-            untitled: "./sprites/untitled.png",
-
             sky: "./sprites/sky.png",
             ground: "./sprites/ground.png",
 
             cave: "./sprites/cave.png",
             caveGround: "./sprites/cave-ground.png",
+
+            // Items
+            rod: "./sprites/rod.png",
+            shovel:"./sprites/shovel.png",
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",
@@ -25,6 +26,10 @@ class Resources{
             textBox: "./sprites/text-box.png",
             fontWhite: "./sprites/sprite-font-white.png",
             portraits: "./sprites/portraits-sheet.png",
+
+            // Music
+            calmMusic: "./music/Calm3.ogg",
+            evilMusic: "./music/Evil5.ogg",
         };
 
         // A bucket to keep all images

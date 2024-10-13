@@ -18,6 +18,12 @@ export class Main extends GameObject{
         const inventory = new Inventory();
         this.addChild(inventory);        
 
+        // Use the shovel
+        events.on("HERO_USES_SHOVEL", this, () => {
+            console.log("HERO USES SHOVEL");
+            return;
+        })
+
         // Change Level handlers
         events.on("CHANGE_LEVEL", this, newLevelInstance => {
             this.setLevel(newLevelInstance);
@@ -25,7 +31,6 @@ export class Main extends GameObject{
 
         // Launch textbox handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
-
             if(typeof withObject.getContent === "function"){
                 const content = withObject.getContent();
 
@@ -38,7 +43,7 @@ export class Main extends GameObject{
                     console.log("ADD FLAG", content.addsFlag);
                     storyFlags.add(content.addsFlag);
                 }
-
+                console.log(storyFlags);
                 // Show the textbox
                 const textbox = new SpriteTextString({
                     portraitFrame: content.portraitFrame,

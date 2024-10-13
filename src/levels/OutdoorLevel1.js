@@ -4,6 +4,7 @@ import { Exit } from "../objects/Exit/Exit.js";
 import { Hero } from "../objects/Hero/Hero.js";
 import { Level } from "../objects/Level/Level.js";
 import { Rod } from "../objects/Rod/Rod.js";
+import { Shovel } from "../objects/Shovel/Shovel.js";
 import { resources } from "../Resources.js";
 import { Sprite } from "../Sprite.js";
 import { Vector2 } from "../Vector2.js";
@@ -35,6 +36,10 @@ export class OutdoorLevel1 extends Level{
         const rod = new Rod(gridCells(7), gridCells(6));
         this.addChild(rod); 
         
+        const shovel = new Shovel(gridCells(6), gridCells(6));
+        this.addChild(shovel);
+
+        // Collision
         this.walls = new Set();
 
         this.walls.add(`64,48`); // trees
