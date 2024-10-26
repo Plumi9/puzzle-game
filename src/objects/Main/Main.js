@@ -2,9 +2,14 @@ import { Camera } from "../../Camera.js";
 import { events } from "../../Events.js";
 import { GameObject } from "../../GameObject.js";
 import { Input } from "../../Input.js";
+import { MusicManager } from "../../MusicManager.js";
+import { resources } from "../../Resources.js";
 import { storyFlags } from "../../StoryFlags.js";
 import { Inventory } from "../Inventory/Inventory.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
+import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
+import { CaveLevel1 } from "../../levels/CaveLevel1.js";
+import { TownLevel1 } from "../../levels/TownLevel1.js";
 
 export class Main extends GameObject{
     constructor(){
@@ -12,17 +17,11 @@ export class Main extends GameObject{
         this.level = null;
         this.input = new Input();
         this.camera = new Camera();
+        this.musicManager = new MusicManager();
     }
-
     ready(){
         const inventory = new Inventory();
         this.addChild(inventory);        
-
-        // Use the shovel
-        events.on("HERO_USES_SHOVEL", this, () => {
-            console.log("HERO USES SHOVEL");
-            return;
-        })
 
         // Change Level handlers
         events.on("CHANGE_LEVEL", this, newLevelInstance => {
@@ -31,6 +30,7 @@ export class Main extends GameObject{
 
         // Launch textbox handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
+            console.log(withObject);
             if(typeof withObject.getContent === "function"){
                 const content = withObject.getContent();
 
@@ -58,17 +58,35 @@ export class Main extends GameObject{
                     events.off(endingSub);
                 })
             }
+            if(typeof withObject.changeLocationRoom === "function"){
+                withObject.changeLocationRoom();
+            }
+            if(typeof withObject.changeLocationCave === "function"){
+                withObject.changeLocationCave();
+            }
         })
     }
 
-    setLevel(newLevelInstance){
-
-        if(this.level){
+    setLevel(newLevelInstance) {
+        if (this.level) {
             this.level.destroy();
         }
 
         this.level = newLevelInstance;
         this.addChild(this.level);
+
+        // Change music based on the level
+        if (newLevelInstance instanceof CaveLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.evilMusic));
+        } else if (newLevelInstance instanceof OutdoorLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.calmMusic));
+        }
+        else if (newLevelInstance instanceof TownLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.happyMusic));
+        }
+        else if (newLevelInstance instanceof TownLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.uneasyMusic));
+        }
     }
 
     drawBackground(ctx){

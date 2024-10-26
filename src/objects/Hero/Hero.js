@@ -21,6 +21,11 @@ import {moveTowards} from "../../helpers/moveTowards.js";
 import { events } from "../../Events.js";
 import { Shovel } from "../Shovel/Shovel.js";
 import { Npc } from "../NPC/Npc.js"
+import { GreenDoor } from "../Door/GreenDoor.js";
+import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
+import { BrownDoor } from "../Door/BrownDoor.js";
+import { CaveEntrance } from "../Door/CaveEntrance.js";
+import { TownLevel1 } from "../../levels/TownLevel1.js";
 
 export class Hero extends GameObject{
     constructor(x, y){
@@ -101,14 +106,26 @@ export class Hero extends GameObject{
                 return child.position.matches(this.position.toNeighbor(this.facingDirection))
             })
             if(objectAtPosition){
-                console.log(objectAtPosition);
                 if(objectAtPosition instanceof Npc){
+                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+                }
+                if(objectAtPosition instanceof GreenDoor){
+                    events.emit("CHANGE_LEVEL", new TownLevel1({
+                        heroPosition: new Vector2(gridCells(24),gridCells(25))
+                    }))
+                }
+                if(objectAtPosition instanceof CaveEntrance){
+                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+                }
+                if(objectAtPosition instanceof BrownDoor){
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
                 }
             }
         }
+        
+        const SPEED = 10;
 
-        const distance = moveTowards(this, this.destinationPosition, 1)
+        const distance = moveTowards(this, this.destinationPosition, SPEED)
         const hasArrived = distance <= 1;
         if(hasArrived){
             this.tryMove(root);

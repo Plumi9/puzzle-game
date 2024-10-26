@@ -10,6 +10,7 @@ import { Sprite } from "../Sprite.js";
 import { TALKED_TO_A, TALKED_TO_B } from "../StoryFlags.js";
 import { Vector2 } from "../Vector2.js";
 import { OutdoorLevel1 } from "./OutdoorLevel1.js";
+import { TownLevel1 } from "./TownLevel1.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(6), gridCells(5));
 
@@ -30,7 +31,7 @@ export class CaveLevel1 extends Level{
         const exit = new Exit(gridCells(3), gridCells(6));
         this.addChild(exit);
 
-        this.heroStartPosition = params.heroPosiition ?? DEFAULT_HERO_POSITION;
+        this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
@@ -59,7 +60,7 @@ export class CaveLevel1 extends Level{
         })
         this.addChild(npc1);
 
-        const npc2 = new Npc(gridCells(6), gridCells(4), {
+        const npc_knight2 = new Npc(gridCells(6), gridCells(4), {
             content: [
                 {
                     string: "What a wonderful day at work in the cave!",
@@ -69,16 +70,17 @@ export class CaveLevel1 extends Level{
             ],
             portraitFrame: 0,
         })
-        this.addChild(npc2);
+        this.addChild(npc_knight2);
 
         this.walls = new Set();
 
         this.walls.add(`64,48`);
     }
+    
     ready(){
         events.on("HERO_EXITS", this, () => {
-            events.emit("CHANGE_LEVEL", new OutdoorLevel1({
-                heroPosition: new Vector2(gridCells(6),gridCells(4))
+            events.emit("CHANGE_LEVEL", new TownLevel1({
+                heroPosition: new Vector2(gridCells(26),gridCells(24))
             }));
         })
     }

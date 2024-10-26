@@ -18,7 +18,6 @@ export class Exit extends GameObject{
     }
     ready(){
         events.on("HERO_POSITION", this, pos => {
-
             // detect overlap
             const roundedHeroX = Math.round(pos.x);
             const roundedHeroY = Math.round(pos.y);

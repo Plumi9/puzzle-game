@@ -47,8 +47,8 @@ export class Sprite extends GameObject{
     }
 
     drawImage(ctx, x, y) {
-    if (!this.resource.isLoaded) {
-        return;
+        if (!this.resource.isLoaded) {
+            return;
     }
 
     // Find the correct sprite sheet frame to use

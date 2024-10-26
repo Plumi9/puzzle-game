@@ -9,7 +9,8 @@ import { resources } from "../Resources.js";
 import { Sprite } from "../Sprite.js";
 import { Vector2 } from "../Vector2.js";
 import { CaveLevel1 } from "./CaveLevel1.js";
-
+import { GreenDoor } from "../objects/Door/GreenDoor.js";
+import { TownLevel1 } from "./TownLevel1.js";
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(6), gridCells(5));
 
 export class OutdoorLevel1 extends Level{
@@ -105,8 +106,8 @@ export class OutdoorLevel1 extends Level{
     }
     ready(){
         events.on("HERO_EXITS", this, () => {
-            events.emit("CHANGE_LEVEL", new CaveLevel1({
-                heroPosiition: new Vector2(gridCells(4),gridCells(6))
+            events.emit("CHANGE_LEVEL", new TownLevel1({
+                heroPosition: new Vector2(gridCells(24),gridCells(26))
             }));
         })
     }

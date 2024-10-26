@@ -3,6 +3,11 @@ import { Vector2 } from "./src/Vector2.js";
 import { Main } from "./src/objects/Main/Main.js";
 import { CaveLevel1 } from "./src/levels/CaveLevel1.js";
 import { OutdoorLevel1 } from "./src/levels/OutdoorLevel1.js";
+import { TitleScreen } from "./src/levels/TitleScreen.js";
+import { TestLevel } from "./src/levels/testlevel.js";
+import { TownLevel1 } from "./src/levels/TownLevel1.js";
+import { RoomLevel1 } from "./src/levels/RoomLevel1.js";
+import { gridCells } from "./src/helpers/grid.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -12,8 +17,12 @@ const ctx = canvas.getContext("2d");
 const mainScene = new Main({
     position: new Vector2(0,0)
 })
-mainScene.setLevel(new OutdoorLevel1());
+//mainScene.setLevel(new RoomLevel1());
+//mainScene.setLevel(new TownLevel1());
+mainScene.setLevel(new TestLevel());
+//mainScene.setLevel(new TitleScreen());
 //mainScene.setLevel(new OutdoorLevel1());
+//mainScene.setLevel(new CaveLevel1());
 
 // Establish update and draw loop
 const update = (delta) => {
