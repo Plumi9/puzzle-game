@@ -105,23 +105,8 @@ export class Hero extends GameObject{
             const objectAtPosition = this.parent.children.find(child => {
                 return child.position.matches(this.position.toNeighbor(this.facingDirection))
             })
-            console.log(objectAtPosition);
             if(objectAtPosition){
-                if(objectAtPosition instanceof Npc){
-                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
-                }
-                if(objectAtPosition instanceof GreenDoor){
-                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
-                }
-                if(objectAtPosition instanceof CaveEntrance){
-                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
-                }
-                if(objectAtPosition instanceof BrownDoor){
-                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
-                }
-                if(objectAtPosition instanceof BluePortal){
-                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
-                }
+                events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
             }
         }
         
