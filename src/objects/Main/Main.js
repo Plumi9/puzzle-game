@@ -10,6 +10,7 @@ import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { CaveLevel1 } from "../../levels/CaveLevel1.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
+import { TownLevel2 } from "../../levels/TownLevel2.js";
 
 export class Main extends GameObject{
     constructor(){
@@ -84,7 +85,7 @@ export class Main extends GameObject{
         else if (newLevelInstance instanceof TownLevel1) {
             this.musicManager.playTrack(new Audio(resources.toLoad.happyMusic));
         }
-        else if (newLevelInstance instanceof TownLevel1) {
+        else if (newLevelInstance instanceof TownLevel2) {
             this.musicManager.playTrack(new Audio(resources.toLoad.uneasyMusic));
         }
     }
@@ -107,5 +108,21 @@ export class Main extends GameObject{
                 child.draw(ctx,0,0);
             }
         })
+
+        if(this.level instanceof TownLevel2){
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(320,0);
+            ctx.lineTo(320,180);
+            ctx.lineTo(0,180);
+            ctx.lineTo(0,0);
+            ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
+            ctx.fillStyle = "rgb(0 0 0 / 100%)";
+            ctx.fill();
+
+            ctx.arc(160, 85, 50, 0, Math.PI * 2, true); 
+            ctx.fillStyle = "rgb(0 0 0 / 50%)";
+            ctx.fill();
+        }
     }
 }

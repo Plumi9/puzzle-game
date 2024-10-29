@@ -8,6 +8,7 @@ import { TestLevel } from "./src/levels/testlevel.js";
 import { TownLevel1 } from "./src/levels/TownLevel1.js";
 import { RoomLevel1 } from "./src/levels/RoomLevel1.js";
 import { gridCells } from "./src/helpers/grid.js";
+import { TownLevel2 } from "./src/levels/TownLevel2.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -19,7 +20,8 @@ const mainScene = new Main({
 })
 //mainScene.setLevel(new RoomLevel1());
 //mainScene.setLevel(new TownLevel1());
-mainScene.setLevel(new TestLevel());
+mainScene.setLevel(new TownLevel2());
+//mainScene.setLevel(new TestLevel());
 //mainScene.setLevel(new TitleScreen());
 //mainScene.setLevel(new OutdoorLevel1());
 //mainScene.setLevel(new CaveLevel1());

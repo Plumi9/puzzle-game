@@ -16,7 +16,7 @@ import { CaveEntrance } from "../objects/Door/CaveEntrance.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(24), gridCells(20));
 
-export class TownLevel1 extends Level{
+export class TownLevel2 extends Level{
     constructor(params={}){
         super({});
 
