@@ -13,8 +13,10 @@ import { TALKED_TO_A, TALKED_TO_B } from "../StoryFlags.js";
 import { Vector2 } from "../Vector2.js";
 import { OutdoorLevel1 } from "./OutdoorLevel1.js";
 import { CaveEntrance } from "../objects/Door/CaveEntrance.js";
+import { BluePortal } from "../objects/Door/BluePortal.js";
+import { TownLevel2 } from "./TownLevel2.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(24), gridCells(20));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
 export class TownLevel1 extends Level{
     constructor(params={}){
@@ -26,30 +28,33 @@ export class TownLevel1 extends Level{
         })
         const townGroundSprite = new Sprite({
             resource: resources.images.townGround,
-            frameSize: new Vector2(992, 1090),
-            position: new Vector2(-32,-112),
+            frameSize: new Vector2(900, 800),
+            position: new Vector2(-128,0),
         })
         this.addChild(townGroundSprite);
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const brownDoor_npc1 = new BrownDoor(gridCells(21), gridCells(24), {
+        const brownDoor_npc1 = new BrownDoor(gridCells(10), gridCells(13), {
             location: "RoomLevel1",
         });
         this.addChild(brownDoor_npc1);
 
-        const brownDoor_npc2 = new BrownDoor(gridCells(33), gridCells(24), {
+        const brownDoor_npc2 = new BrownDoor(gridCells(22), gridCells(13), {
             location: "RoomLevel1",
         });
         this.addChild(brownDoor_npc2);
 
-        const caveEntrance = new CaveEntrance(gridCells(56), gridCells(14), {
+        const caveEntrance = new CaveEntrance(gridCells(42), gridCells(3), {
             location: "CaveLevel1",
         });
         this.addChild(caveEntrance);
 
-        const exit = new Exit(gridCells(5), gridCells(42));
+        const exit = new Exit(gridCells(-7), gridCells(31));
         this.addChild(exit);
+
+        const bluePortal = new BluePortal(gridCells(41), gridCells(11));
+        this.addChild(bluePortal);
 
         this.walls = new Set();
 
@@ -60,9 +65,16 @@ export class TownLevel1 extends Level{
     }
     
     ready(){
+        // Staircase to OutdoorLevel
         events.on("HERO_EXITS", this, () => {
             events.emit("CHANGE_LEVEL", new OutdoorLevel1({
-                heroPosition: new Vector2(gridCells(4),gridCells(6))
+                heroPosition: new Vector2(gridCells(6),gridCells(4))
+            }));
+        })
+        // Portal to TownLevel2
+        events.on("HERO_ENTERS_PORTAL", this, () => {
+            events.emit("CHANGE_LEVEL", new TownLevel2({
+                heroPosition: new Vector2(gridCells(41),gridCells(12))
             }));
         })
     }

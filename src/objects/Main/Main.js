@@ -29,9 +29,9 @@ export class Main extends GameObject{
             this.setLevel(newLevelInstance);
         })
 
-        // Launch textbox handler
+        // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
-            console.log(withObject);
+            // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
                 const content = withObject.getContent();
 
@@ -59,11 +59,16 @@ export class Main extends GameObject{
                     events.off(endingSub);
                 })
             }
+
+            // Door handler
             if(typeof withObject.changeLocationRoom === "function"){
                 withObject.changeLocationRoom();
             }
             if(typeof withObject.changeLocationCave === "function"){
                 withObject.changeLocationCave();
+            }
+            if(typeof withObject.changeLocationPortal === "function"){
+                withObject.changeLocationPortal();
             }
         })
     }

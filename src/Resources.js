@@ -11,6 +11,7 @@ class Resources{
             greenDoor: "./sprites/green-door.png",
             brownDoor: "./sprites/brown-door.png",
             caveEntrance: "./sprites/CaveEntrance.png",
+            bluePortal: "./sprites/bluePortal.png",
 
             // Maps
             black: "./sprites/black.png",

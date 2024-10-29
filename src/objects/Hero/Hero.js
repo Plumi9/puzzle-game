@@ -26,6 +26,7 @@ import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { BrownDoor } from "../Door/BrownDoor.js";
 import { CaveEntrance } from "../Door/CaveEntrance.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
+import { BluePortal } from "../Door/BluePortal.js";
 
 export class Hero extends GameObject{
     constructor(x, y){
@@ -100,11 +101,11 @@ export class Hero extends GameObject{
         /**@param {Input} input */
         
         if(input?.getActionJustPressed("Space")){
-
             // Look for an object at the next space the player is facing
             const objectAtPosition = this.parent.children.find(child => {
                 return child.position.matches(this.position.toNeighbor(this.facingDirection))
             })
+            console.log(objectAtPosition);
             if(objectAtPosition){
                 if(objectAtPosition instanceof Npc){
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
@@ -118,6 +119,9 @@ export class Hero extends GameObject{
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
                 }
                 if(objectAtPosition instanceof BrownDoor){
+                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
+                }
+                if(objectAtPosition instanceof BluePortal){
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
                 }
             }

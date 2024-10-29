@@ -25,7 +25,7 @@ export class BrownDoor extends GameObject{
 
         // location it leads to
         this.location = location.location;
-        this.heroPosition = location.heroPosition;
+        this.heroPosition = location.heroPosition ?? new Vector2(gridCells(2),gridCells(2));
 
         this.drawLayer = "FLOOR";
     }

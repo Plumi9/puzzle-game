@@ -36,7 +36,7 @@ export class RoomLevel1 extends Level{
 
         const door = new BrownDoor(gridCells(2),gridCells(1), { 
             location: 'TownLevel1',
-            heroPosition: new Vector2(gridCells(25),gridCells(27)),
+            heroPosition: new Vector2(gridCells(10),gridCells(14)),
         });
         this.addChild(door);
 
