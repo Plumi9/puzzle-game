@@ -19,6 +19,9 @@ export class CaveEntrance extends GameObject{
         })
         this.addChild(sprite)
 
+        // Opt into being solid
+        this.isSolid = true;
+
         // location it leads to
         this.location = location.location;
         this.xCoord = location.xCoord;

@@ -16,6 +16,9 @@ export class BluePortal extends GameObject{
         })
         this.addChild(sprite)
 
+        // Opt into being solid
+        this.isSolid = true;
+
         this.drawLayer = "FLOOR";
     }
 

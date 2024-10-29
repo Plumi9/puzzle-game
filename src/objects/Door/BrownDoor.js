@@ -23,6 +23,9 @@ export class BrownDoor extends GameObject{
         })
         this.addChild(sprite)
 
+        // Opt into being solid
+        this.isSolid = true;
+        
         // location it leads to
         this.location = location.location;
         this.heroPosition = location.heroPosition ?? new Vector2(gridCells(2),gridCells(2));

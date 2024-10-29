@@ -38,7 +38,7 @@ export class Npc extends GameObject{
     }
 
     getContent(){
-
+        console.log("HELLO")
         // Maybe expand with story flag logic, etc... 
         const match  = storyFlags.getRelevantScenario(this.textContent);
         if(!match){

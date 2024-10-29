@@ -70,6 +70,9 @@ export class Main extends GameObject{
             if(typeof withObject.changeLocationPortal === "function"){
                 withObject.changeLocationPortal();
             }
+            if(typeof withObject.changeLocationGreenDoor === "function"){
+                withObject.changeLocationGreenDoor();
+            }
         })
     }
 

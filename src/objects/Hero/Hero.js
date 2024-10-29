@@ -111,9 +111,7 @@ export class Hero extends GameObject{
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
                 }
                 if(objectAtPosition instanceof GreenDoor){
-                    events.emit("CHANGE_LEVEL", new TownLevel1({
-                        heroPosition: new Vector2(gridCells(24),gridCells(25))
-                    }))
+                    events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
                 }
                 if(objectAtPosition instanceof CaveEntrance){
                     events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
