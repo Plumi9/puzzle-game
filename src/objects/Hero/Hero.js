@@ -110,7 +110,7 @@ export class Hero extends GameObject{
             }
         }
         
-        const SPEED = 10;
+        const SPEED = 5;
 
         const distance = moveTowards(this, this.destinationPosition, SPEED)
         const hasArrived = distance <= 1;

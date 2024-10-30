@@ -34,19 +34,19 @@ export class Npc42 extends GameObject{
         this.addChild(body);
     }
 
-    // getContent(){
+    getContent(){
 
-    //     // Maybe expand with story flag logic, etc... 
-    //     const match  = storyFlags.getRelevantScenario(this.textContent);
-    //     if(!match){
-    //         console.warn("No matches found in this list", this.textContent);
-    //         return null;
-    //     }
+        // Maybe expand with story flag logic, etc... 
+        const match  = storyFlags.getRelevantScenario(this.textContent);
+        if(!match){
+            console.warn("No matches found in this list", this.textContent);
+            return null;
+        }
 
-    //     return {
-    //         portraitFrame: this.textPortrait,
-    //         string: match.string,
-    //         addsFlag: match.addsFlag ?? null,
-    //     }
-    // }
+        return {
+            portraitFrame: this.textPortrait,
+            string: match.string,
+            addsFlag: match.addsFlag ?? null,
+        }
+    }
 }

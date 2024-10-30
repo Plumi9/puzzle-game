@@ -99,7 +99,7 @@ export class SpriteTextString extends GameObject{
 
         // Configuration options
         const PADDING_LEFT = 27;
-        const PADDING_TOP = 9;
+        const PADDING_TOP = 5;
         const LINE_WIDTH_MAX = 240;
         const LINE_VERTICAL_HEIGHT = 14;
 

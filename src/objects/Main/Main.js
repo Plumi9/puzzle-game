@@ -32,7 +32,7 @@ export class Main extends GameObject{
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
             
-            console.log(withObject);
+            // console.log(withObject);
 
             // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
@@ -44,10 +44,9 @@ export class Main extends GameObject{
 
                 // Potentially add a story flag
                 if(content.addsFlag){
-                    console.log("ADD FLAG", content.addsFlag);
                     storyFlags.add(content.addsFlag);
                 }
-                console.log(storyFlags);
+                // console.log(storyFlags);
                 // Show the textbox
                 const textbox = new SpriteTextString({
                     portraitFrame: content.portraitFrame,
@@ -64,6 +63,7 @@ export class Main extends GameObject{
             }
 
             // Door handler
+            // TODO: CHANGE TO SWITCH STATEMENT
             if(typeof withObject.changeLocationRoom === "function"){
                 withObject.changeLocationRoom();
             }
