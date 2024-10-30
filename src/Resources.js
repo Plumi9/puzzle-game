@@ -95,6 +95,7 @@ class Resources{
             evilMusic: "./music/Evil5.ogg",
             happyMusic: "./music/Happy.mp3",
             uneasyMusic: "./music/Uneasy.mp3",
+            mysteriousMusic: "./music/Harp.ogg",
         };
 
         // A bucket to keep all images

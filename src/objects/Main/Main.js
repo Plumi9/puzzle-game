@@ -11,6 +11,7 @@ import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { CaveLevel1 } from "../../levels/CaveLevel1.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { TownLevel2 } from "../../levels/TownLevel2.js";
+import { RoomLevel1 } from "../../levels/RoomLevel1.js";
 
 export class Main extends GameObject{
     constructor(){
@@ -90,14 +91,18 @@ export class Main extends GameObject{
         // Change music based on the level
         if (newLevelInstance instanceof CaveLevel1) {
             this.musicManager.playTrack(new Audio(resources.toLoad.evilMusic));
-        } else if (newLevelInstance instanceof OutdoorLevel1) {
-            this.musicManager.playTrack(new Audio(resources.toLoad.calmMusic));
+        } 
+        else if (newLevelInstance instanceof OutdoorLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.mysteriousMusic), 0.1);
         }
         else if (newLevelInstance instanceof TownLevel1) {
             this.musicManager.playTrack(new Audio(resources.toLoad.happyMusic));
         }
         else if (newLevelInstance instanceof TownLevel2) {
             this.musicManager.playTrack(new Audio(resources.toLoad.uneasyMusic));
+        }
+        else if (newLevelInstance instanceof RoomLevel1) {
+            this.musicManager.playTrack(new Audio(resources.toLoad.calmMusic));
         }
     }
 
