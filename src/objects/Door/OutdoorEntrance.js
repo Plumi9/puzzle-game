@@ -4,16 +4,16 @@ import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { events } from "../../Events.js";
 import { gridCells } from "../../helpers/grid.js";
-import { CaveLevel1 } from "../../levels/CaveLevel1.js";
+import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 
 
-export class CaveEntrance extends GameObject{
+export class OutdoorEntrance extends GameObject{
     constructor(x,y){
         super({
             position: new Vector2(x,y),
         });
         const sprite = new Sprite({
-            resource: resources.images.caveEntrance,
+            resource: resources.images.outdoorEntrance,
             frameSize: new Vector2(64, 64),
             position: new Vector2(0, -16),
         })
@@ -32,8 +32,8 @@ export class CaveEntrance extends GameObject{
     }
 
     changeLocationCave(){
-        events.emit("CHANGE_LEVEL", new CaveLevel1({
-            heroPosition: new Vector2(gridCells(4),gridCells(6))
+        events.emit("CHANGE_LEVEL", new OutdoorLevel1({
+            heroPosition: new Vector2(gridCells(6),gridCells(4))
         }));
     }
 }

@@ -10,7 +10,7 @@ class Resources{
             exit: "./sprites/exit.png",
             greenDoor: "./sprites/green-door.png",
             brownDoor: "./sprites/brown-door.png",
-            caveEntrance: "./sprites/CaveEntrance.png",
+            outdoorEntrance: "./sprites/OutdoorEntrance.png",
             bluePortal: "./sprites/bluePortal.png",
 
             // Maps
@@ -30,6 +30,9 @@ class Resources{
             // Items
             rod: "./sprites/rod.png",
             shovel:"./sprites/shovel.png",
+
+            // Interactive Props
+            chest: "./sprites/chest.png",
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",

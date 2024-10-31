@@ -12,7 +12,7 @@ import { Sprite } from "../Sprite.js";
 import { TALKED_TO_A, TALKED_TO_B } from "../StoryFlags.js";
 import { Vector2 } from "../Vector2.js";
 import { OutdoorLevel1 } from "./OutdoorLevel1.js";
-import { CaveEntrance } from "../objects/Door/CaveEntrance.js";
+import { OutdoorEntrance } from "../objects/Door/OutdoorEntrance.js";
 import { TownLevel1 } from "./TownLevel1.js";
 import { BluePortal } from "../objects/Door/BluePortal.js";
 
@@ -45,10 +45,10 @@ export class TownLevel2 extends Level{
         });
         this.addChild(brownDoor_npc2);
 
-        const caveEntrance = new CaveEntrance(gridCells(42), gridCells(3), {
+        const outdoorEntrance = new OutdoorEntrance(gridCells(42), gridCells(3), {
             location: "CaveLevel1",
         });
-        this.addChild(caveEntrance);
+        this.addChild(outdoorEntrance);
 
         const exit = new Exit(gridCells(-7), gridCells(31));
         this.addChild(exit);

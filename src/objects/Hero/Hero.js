@@ -24,7 +24,7 @@ import { Npc } from "../NPC/Npc.js"
 import { GreenDoor } from "../Door/GreenDoor.js";
 import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { BrownDoor } from "../Door/BrownDoor.js";
-import { CaveEntrance } from "../Door/CaveEntrance.js";
+import { OutdoorEntrance } from "../Door/OutdoorEntrance.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { BluePortal } from "../Door/BluePortal.js";
 

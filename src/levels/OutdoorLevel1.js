@@ -107,7 +107,7 @@ export class OutdoorLevel1 extends Level{
     ready(){
         events.on("HERO_EXITS", this, () => {
             events.emit("CHANGE_LEVEL", new TownLevel1({
-                heroPosition: new Vector2(gridCells(-7),gridCells(32))
+                heroPosition: new Vector2(gridCells(42),gridCells(4))
             }));
         })
     }

@@ -33,7 +33,7 @@ export class Main extends GameObject{
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
             
-            // console.log(withObject);
+            console.log(withObject);
 
             // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
@@ -76,6 +76,11 @@ export class Main extends GameObject{
             }
             if(typeof withObject.changeLocationGreenDoor === "function"){
                 withObject.changeLocationGreenDoor();
+            }
+
+            // Props Handler
+            if(typeof withObject.interactProp === "function"){
+                withObject.interactProp();
             }
         })
     }
