@@ -4,14 +4,13 @@ import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 
-export class Shovel extends GameObject{
+export class Key extends GameObject{
     constructor(x,y){
         super({
             position: new Vector2(x,y)
         })
         const sprite = new Sprite({
-            resource: resources.images.shovel,
-            position: new Vector2(0, -5) 
+            resource: resources.images.key,
         })
         this.addChild(sprite);
     }
@@ -34,7 +33,7 @@ export class Shovel extends GameObject{
 
         // Alert other modules that we picked up Shovel
         events.emit("HERO_PICKS_UP_ITEM", {
-            image: resources.images.shovel,
+            image: resources.images.key,
             position: this.position,
         })
     }

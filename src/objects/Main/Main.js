@@ -33,7 +33,7 @@ export class Main extends GameObject{
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
             
-            console.log(withObject);
+            console.log(withObject.constructor.name);
 
             // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
@@ -47,7 +47,6 @@ export class Main extends GameObject{
                 if(content.addsFlag){
                     storyFlags.add(content.addsFlag);
                 }
-                // console.log(storyFlags);
                 // Show the textbox
                 const textbox = new SpriteTextString({
                     portraitFrame: content.portraitFrame,
@@ -79,8 +78,37 @@ export class Main extends GameObject{
             }
 
             // Props Handler
-            if(typeof withObject.interactProp === "function"){
-                withObject.interactProp();
+            switch(withObject.constructor.name){
+                case "Chest":
+                    withObject.interactChest(this);
+                    break;
+                case "EmptyPotion":
+                    withObject.interactPotion(this);
+                    break;
+                case "Sword": 
+                    withObject.interactSword(this);
+                    break;
+                case "Paper": 
+                    withObject.interactPaper(this);
+                    break;
+                case "Ring": 
+                    withObject.interactRing(this);
+                    break;
+                case "Necklace": 
+                    withObject.interactNecklace(this);
+                    break;
+                case "Scroll": 
+                    withObject.interactScroll(this);
+                    break;
+                case "Mound": 
+                    withObject.interactMound(this);
+                    break;
+                case "Pouch": 
+                    withObject.interactPouch(this);
+                    break;
+                case "Book": 
+                    withObject.interactBook(this);
+                    break;
             }
         })
     }
@@ -130,6 +158,7 @@ export class Main extends GameObject{
             }
         })
 
+        // limited view cone
         if(this.level instanceof TownLevel2){
             ctx.beginPath();
             ctx.moveTo(0,0);

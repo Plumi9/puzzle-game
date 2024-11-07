@@ -23,6 +23,17 @@ import { Npc26 } from "../objects/NPC/Npc26.js";
 import { Npc19 } from "../objects/NPC/Npc19.js";
 import { CaveLevel1 } from "./CaveLevel1.js";
 import { Chest } from "../objects/Chest/Chest.js";
+import { Shovel } from "../objects/Shovel/Shovel.js";
+import { EmptyPotion } from "../objects/Potion/emptyPotion.js";
+import { Sword } from "../objects/Sword/sword.js";
+import { Paper } from "../objects/Paper/Paper.js";
+import { Ring } from "../objects/Ring/Ring.js";
+import { Necklace } from "../objects/Necklace/Necklace.js";
+import { Scroll } from "../objects/Scroll/Scroll.js";
+import { Mound } from "../objects/Mound/Mound.js";
+import { Pouch } from "../objects/Pouch/Pouch.js";
+import { Book } from "../objects/Book/Book.js";
+import { Key } from "../objects/Key/Key.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
@@ -43,16 +54,50 @@ export class TownLevel1 extends Level{
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const chest = new Chest(gridCells(-1),gridCells(-1));
+        const chest = new Chest(gridCells(0),gridCells(-1));
         this.addChild(chest);
+
+        const emptyPotion = new EmptyPotion(gridCells(-1),gridCells(-1));
+        this.addChild(emptyPotion);
+
+        const sword = new Sword(gridCells(-2),gridCells(-1));
+        this.addChild(sword)
+
+        const paper = new Paper(gridCells(-3),gridCells(-1));
+        this.addChild(paper)
+
+        const ring = new Ring(gridCells(-4),gridCells(-1));
+        this.addChild(ring);
+
+        const necklace = new Necklace(gridCells(-5),gridCells(-1));
+        this.addChild(necklace);
+
+        const scroll = new Scroll(gridCells(-6),gridCells(-1));
+        this.addChild(scroll);
+
+        const mound = new Mound(gridCells(-7),gridCells(-1))
+        this.addChild(mound);
+
+        const pouch = new Pouch(gridCells(-8),gridCells(-1))
+        this.addChild(pouch);
+
+        const book = new Book(gridCells(-9),gridCells(-1))
+        this.addChild(book);
+
+        const key = new Key(gridCells(-10),gridCells(-1))
+        this.addChild(key);
+
+
 
         const brownDoor_npc1 = new BrownDoor(gridCells(10), gridCells(13), {
             location: "RoomLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(2)),
         });
         this.addChild(brownDoor_npc1);
 
         const brownDoor_npc2 = new BrownDoor(gridCells(22), gridCells(13), {
-            location: "RoomLevel1",
+            location: "RoomLevel2",
+            heroPosition: new Vector2(gridCells(2),gridCells(2)),
         });
         this.addChild(brownDoor_npc2);
 
@@ -139,6 +184,12 @@ export class TownLevel1 extends Level{
                 {
                     string: "Or am I?",
                     requires: [TALKED_TO_HUNTER],
+                    bypass: ["FOUND_SHOVEL"],
+                    addsFlag: "TALKED_TO_HUNTER2",
+                },
+                {
+                    string: "Ooh a shovel. NICE!",
+                    requires: ["FOUND_SHOVEL"],
                     bypass: [],
                     addsFlag: "TALKED_TO_HUNTER2",
                 },

@@ -26,13 +26,26 @@ class Resources{
             townGround: "./sprites/town-ground.png",
 
             room: "./sprites/room.png",
+            room2: "./sprites/room2.png",
+
+            dungeonGround: "./sprites/dungeon.png",
 
             // Items
             rod: "./sprites/rod.png",
-            shovel:"./sprites/shovel.png",
+            shovel: "./sprites/shovel.png",
+            key: "./sprites/key.png",
 
             // Interactive Props
+            emptyPotion: "./sprites/emptyPotion.png",
             chest: "./sprites/chest.png",
+            mound: "./sprites/mound.png",
+            scroll: "./sprites/scroll.png",
+            paper: "./sprites/paper.png",
+            sword: "./sprites/sword.png",
+            ring: "./sprites/ring.png",
+            necklace: "./sprites/necklace.png",
+            pouch: "./sprites/pouch.png",
+            book: "./sprites/book.png",
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",

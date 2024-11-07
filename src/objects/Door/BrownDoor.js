@@ -4,6 +4,7 @@ import { gridCells } from "../../helpers/grid.js";
 import { CaveLevel1 } from "../../levels/CaveLevel1.js";
 import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { RoomLevel1 } from "../../levels/RoomLevel1.js";
+import { RoomLevel2 } from "../../levels/RoomLevel2.js";
 import { TestLevel } from "../../levels/testlevel.js";
 import { TitleScreen } from "../../levels/TitleScreen.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
@@ -50,6 +51,11 @@ export class BrownDoor extends GameObject{
                     heroPosition: this.heroPosition,
                 }));
                 break;
+            case 'RoomLevel2':
+                    events.emit("CHANGE_LEVEL", new RoomLevel2({
+                        heroPosition: this.heroPosition,
+                    }));
+                    break;
             case 'TestLevel':
                 events.emit("CHANGE_LEVEL", new TestLevel({
                     heroPosition: this.heroPosition,

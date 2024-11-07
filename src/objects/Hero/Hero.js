@@ -110,7 +110,7 @@ export class Hero extends GameObject{
             }
         }
         
-        const SPEED = 5;
+        const SPEED = 10;
 
         const distance = moveTowards(this, this.destinationPosition, SPEED)
         const hasArrived = distance <= 1;
@@ -178,7 +178,12 @@ export class Hero extends GameObject{
 
     onPickupItem({ image, position }){
         // Player stops on item spot
-        this.destinationPosition = position.duplicate();
+        if(position){
+            this.destinationPosition = position.duplicate();
+        }
+        else{
+            this.destinationPosition = this.position.duplicate();
+        }
 
         // Start pickup animation
         this.itemPickUpTime = 400 // ms

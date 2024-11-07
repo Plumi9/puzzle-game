@@ -11,6 +11,7 @@ import { Vector2 } from "../Vector2.js";
 import { CaveLevel1 } from "./CaveLevel1.js";
 import { GreenDoor } from "../objects/Door/GreenDoor.js";
 import { TownLevel1 } from "./TownLevel1.js";
+import { Mound } from "../objects/Mound/Mound.js";
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(6), gridCells(5));
 
 export class OutdoorLevel1 extends Level{
@@ -39,6 +40,9 @@ export class OutdoorLevel1 extends Level{
         
         const shovel = new Shovel(gridCells(6), gridCells(6));
         this.addChild(shovel);
+
+        const mound = new Mound(gridCells(3),gridCells(4));
+        this.addChild(mound);
 
         // Collision
         this.walls = new Set();
