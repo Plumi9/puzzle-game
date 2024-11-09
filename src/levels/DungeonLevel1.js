@@ -25,13 +25,16 @@ export class DungeonLevel1 extends Level{
         })
         const dungeonGroundSprite = new Sprite({
             resource: resources.images.dungeonGround,
-            frameSize: new Vector2(380, 380),
+            frameSize: new Vector2(400, 400),
         })
         this.addChild(dungeonGroundSprite);
         
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const brownDoor = new BrownDoor(gridCells(2),gridCells(2));
+        const brownDoor = new BrownDoor(gridCells(2),gridCells(2),{
+            location: "TownLevel1",
+            heroPosition: new Vector2(gridCells(41),gridCells(12)),
+        });
         this.addChild(brownDoor)
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);

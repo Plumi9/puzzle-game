@@ -101,6 +101,12 @@ export class TownLevel1 extends Level{
         });
         this.addChild(brownDoor_npc2);
 
+        const brownDoor_npc3 = new BrownDoor(gridCells(41), gridCells(11), {
+            location: "DungeonLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(3)),
+        });
+        this.addChild(brownDoor_npc3);
+
         const outdoorEntrance = new OutdoorEntrance(gridCells(42), gridCells(3), {
             location: "OutdoorLevel1",
         });
@@ -109,7 +115,7 @@ export class TownLevel1 extends Level{
         const exit = new Exit(gridCells(-7), gridCells(31));
         this.addChild(exit);
 
-        const bluePortal = new BluePortal(gridCells(41), gridCells(11));
+        const bluePortal = new BluePortal(gridCells(2), gridCells(5));
         this.addChild(bluePortal);
 
         this.walls = new Set();
@@ -245,12 +251,6 @@ export class TownLevel1 extends Level{
         events.on("HERO_EXITS", this, () => {
             events.emit("CHANGE_LEVEL", new CaveLevel1({
                 heroPosition: new Vector2(gridCells(4),gridCells(6))
-            }));
-        })
-        // Portal to TownLevel2
-        events.on("HERO_ENTERS_PORTAL", this, () => {
-            events.emit("CHANGE_LEVEL", new TownLevel2({
-                heroPosition: new Vector2(gridCells(41),gridCells(12))
             }));
         })
     }

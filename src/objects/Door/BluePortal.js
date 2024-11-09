@@ -3,9 +3,11 @@ import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { events } from "../../Events.js";
+import { gridCells } from "../../helpers/grid.js";
+import { TownLevel2 } from "../../levels/TownLevel2.js";
 
 export class BluePortal extends GameObject{
-    constructor(x,y){
+    constructor(x,y,location={}){
         super({
             position: new Vector2(x,y),
         });
@@ -16,6 +18,10 @@ export class BluePortal extends GameObject{
         })
         this.addChild(sprite)
 
+        // location it leads to
+        this.location = location.location;
+        this.heroPosition = location.heroPosition ?? new Vector2(gridCells(2),gridCells(2));        
+
         // Opt into being solid
         this.isSolid = true;
 
@@ -23,6 +29,8 @@ export class BluePortal extends GameObject{
     }
 
     changeLocationPortal(){
-        events.emit("HERO_ENTERS_PORTAL");
+        events.emit("CHANGE_LEVEL", new TownLevel2({
+            heroPosition: this.heroPosition,
+        }));
     }
 }

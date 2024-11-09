@@ -20,10 +20,10 @@ const ctx = canvas.getContext("2d");
 const mainScene = new Main({
     position: new Vector2(0,0)
 })
-mainScene.setLevel(new DungeonLevel1());
+//mainScene.setLevel(new DungeonLevel1());
 //mainScene.setLevel(new RoomLevel1());
 //mainScene.setLevel(new RoomLevel2());
-//mainScene.setLevel(new TownLevel1());
+mainScene.setLevel(new TownLevel1());
 //mainScene.setLevel(new TownLevel2());
 //mainScene.setLevel(new TestLevel());
 //mainScene.setLevel(new TitleScreen());
