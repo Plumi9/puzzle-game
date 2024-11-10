@@ -32,7 +32,6 @@ export class Main extends GameObject{
 
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
-            
             console.log(withObject.constructor.name);
 
             // TEXTBOX HANDLER
@@ -108,6 +107,9 @@ export class Main extends GameObject{
                     break;
                 case "Book": 
                     withObject.interactBook(this);
+                    break;
+                case "Fireplace": 
+                    withObject.interactFireplace(this,withObject);
                     break;
             }
         })

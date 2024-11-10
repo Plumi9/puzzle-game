@@ -41,12 +41,13 @@ export class Chest extends GameObject{
         mainScene.addChild(textbox);
 
         events.emit("START_TEXT_BOX");
-        this.destroy();
 
         // Unsubscribe from this textbox after its destroyed
         const endingSub = events.on("END_TEXT_BOX", this, () => {
             textbox.destroy();
             events.off(endingSub);
+            
+            this.destroy();
         })
     }
 }

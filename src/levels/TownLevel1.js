@@ -34,6 +34,7 @@ import { Mound } from "../objects/Mound/Mound.js";
 import { Pouch } from "../objects/Pouch/Pouch.js";
 import { Book } from "../objects/Book/Book.js";
 import { Key } from "../objects/Key/Key.js";
+import { Fireplace } from "../objects/Fireplace/Fireplace.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
@@ -87,6 +88,8 @@ export class TownLevel1 extends Level{
         const key = new Key(gridCells(-10),gridCells(-1))
         this.addChild(key);
 
+        const fireplace = new Fireplace(gridCells(-11),gridCells(-1));
+        this.addChild(fireplace);
 
 
         const brownDoor_npc1 = new BrownDoor(gridCells(10), gridCells(13), {
