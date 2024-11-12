@@ -84,9 +84,21 @@ export class Hero extends GameObject{
     }
 
     step(delta, root){
+        
+        // Check for input
+        /** @type {Input} input */
+        const input = root.input;
+        /**@param {Input} input */
+        
         // Don't do anything when locked
         if(this.isLocked){
-            return;
+            // only accept "Space" as input when reading scroll
+            if(input?.getActionJustPressed("Space")){
+                events.emit("END_TEXT_BOX");
+            }
+            else{
+                return;
+            }
         }
 
         // stop movement when picking up
@@ -95,11 +107,7 @@ export class Hero extends GameObject{
             return;
         }
 
-        // Check for input
-        /** @type {Input} input */
-        const input = root.input;
-        /**@param {Input} input */
-        
+        // interact with objects
         if(input?.getActionJustPressed("Space")){
             // Look for an object at the next space the player is facing
             const objectAtPosition = this.parent.children.find(child => {
@@ -110,6 +118,7 @@ export class Hero extends GameObject{
             }
         }
         
+        // set player Speed
         const SPEED = 10;
 
         const distance = moveTowards(this, this.destinationPosition, SPEED)

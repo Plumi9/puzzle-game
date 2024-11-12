@@ -41,13 +41,17 @@ class Resources{
             emptyPotion: "./sprites/emptyPotion.png",
             chest: "./sprites/chest.png",
             mound: "./sprites/mound.png",
+            
             scroll: "./sprites/scroll.png",
+            scrollZoom: "./sprites/scrollZoom.png",
+
             paper: "./sprites/paper.png",
             sword: "./sprites/sword.png",
             ring: "./sprites/ring.png",
             necklace: "./sprites/necklace.png",
             pouch: "./sprites/pouch.png",
             book: "./sprites/book.png",
+
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",

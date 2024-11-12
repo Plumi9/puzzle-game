@@ -4,21 +4,21 @@ import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 
-export class Scroll extends GameObject{
+export class ScrollZoom extends GameObject{
     constructor(x,y){
         super({
             position: new Vector2(x,y)
         })
+        this.drawLayer = "HUD"
+
         const sprite = new Sprite({
-            resource: resources.images.scroll,
+            resource: resources.images.scrollZoom,
+            frameSize: new Vector2(300,300)
         })
-        this.addChild(sprite);
+        this.addChild(sprite)
 
-        this.isSolid = true;
+        this.renderScrollZoom();
     }
-
-    // Textbox Handler
-    interactScroll(mainScene){
-        //events.emit("START_TEXT_BOX");
+    renderScrollZoom(){
     }
 }

@@ -15,7 +15,7 @@ export class Fireplace extends GameObject{
         const sprite = new Sprite({
             resource: resources.images.fireplace_on,
             frameSize: new Vector2(26,41),
-            position: new Vector2(-5,-22)
+            position: new Vector2(-5,-30)
         })
         this.addChild(sprite)
 
@@ -39,7 +39,7 @@ export class Fireplace extends GameObject{
         const sprite = new Sprite({
             resource: resources.images.fireplace_off,
             frameSize: new Vector2(26,41),
-            position: new Vector2(-5,-22)
+            position: new Vector2(-5,-30),
         })
         fireplace_obj.addChild(sprite);
     }

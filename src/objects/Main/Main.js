@@ -20,6 +20,7 @@ export class Main extends GameObject{
         this.input = new Input();
         this.camera = new Camera();
         this.musicManager = new MusicManager();
+        this.hasInteractedWithScroll = false;
     }
     ready(){
         const inventory = new Inventory();
@@ -98,6 +99,13 @@ export class Main extends GameObject{
                     break;
                 case "Scroll": 
                     withObject.interactScroll(this);
+                    if(this.hasInteractedWithScroll == false){
+                        this.hasInteractedWithScroll = true;
+                        events.emit("START_TEXT_BOX");        
+                    }
+                    else{
+                        this.hasInteractedWithScroll = false;
+                    }
                     break;
                 case "Mound": 
                     withObject.interactMound(this);
@@ -160,21 +168,27 @@ export class Main extends GameObject{
             }
         })
 
-        // limited view cone
-        if(this.level instanceof TownLevel2){
-            ctx.beginPath();
-            ctx.moveTo(0,0);
-            ctx.lineTo(320,0);
-            ctx.lineTo(320,180);
-            ctx.lineTo(0,180);
-            ctx.lineTo(0,0);
-            ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
-            ctx.fillStyle = "rgb(0 0 0 / 100%)";
-            ctx.fill();
-
-            ctx.arc(160, 85, 50, 0, Math.PI * 2, true); 
-            ctx.fillStyle = "rgb(0 0 0 / 50%)";
-            ctx.fill();
+        // draw Scroll on screen
+        if (this.hasInteractedWithScroll) {
+            const img = new Image();
+            img.src = "../../sprites/scrollZoom.png";
+            ctx.drawImage(img, 85, 0);
         }
+        // limited view cone
+        // if(this.level instanceof TownLevel2){
+        //     ctx.beginPath();
+        //     ctx.moveTo(0,0);
+        //     ctx.lineTo(320,0);
+        //     ctx.lineTo(320,180);
+        //     ctx.lineTo(0,180);
+        //     ctx.lineTo(0,0);
+        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
+        //     ctx.fillStyle = "rgb(0 0 0 / 100%)";
+        //     ctx.fill();
+
+        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); 
+        //     ctx.fillStyle = "rgb(0 0 0 / 50%)";
+        //     ctx.fill();
+        // }
     }
 }

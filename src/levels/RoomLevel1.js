@@ -3,6 +3,7 @@ import { gridCells } from "../helpers/grid.js";
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
 import { GreenDoor } from "../objects/Door/GreenDoor.js";
 import { Exit } from "../objects/Exit/Exit.js";
+import { Fireplace } from "../objects/Fireplace/Fireplace.js";
 import { Hero } from "../objects/Hero/Hero.js";
 import { Level } from "../objects/Level/Level.js";
 import { Npc } from "../objects/NPC/Npc.js";
@@ -39,6 +40,9 @@ export class RoomLevel1 extends Level{
             heroPosition: new Vector2(gridCells(10),gridCells(14)),
         });
         this.addChild(door);
+
+        const fireplace = new Fireplace(gridCells(7),gridCells(2));
+        this.addChild(fireplace);
 
         // Collision
         this.walls = new Set();

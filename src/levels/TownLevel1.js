@@ -35,6 +35,8 @@ import { Pouch } from "../objects/Pouch/Pouch.js";
 import { Book } from "../objects/Book/Book.js";
 import { Key } from "../objects/Key/Key.js";
 import { Fireplace } from "../objects/Fireplace/Fireplace.js";
+import { TextBox } from "../objects/TextBox/TextBox.js";
+import { ScrollZoom } from "../objects/Scroll/ScrollZoom.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
@@ -90,7 +92,6 @@ export class TownLevel1 extends Level{
 
         const fireplace = new Fireplace(gridCells(-11),gridCells(-1));
         this.addChild(fireplace);
-
 
         const brownDoor_npc1 = new BrownDoor(gridCells(10), gridCells(13), {
             location: "RoomLevel1",
