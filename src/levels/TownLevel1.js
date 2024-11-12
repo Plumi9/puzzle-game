@@ -35,8 +35,6 @@ import { Pouch } from "../objects/Pouch/Pouch.js";
 import { Book } from "../objects/Book/Book.js";
 import { Key } from "../objects/Key/Key.js";
 import { Fireplace } from "../objects/Fireplace/Fireplace.js";
-import { TextBox } from "../objects/TextBox/TextBox.js";
-import { ScrollZoom } from "../objects/Scroll/ScrollZoom.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 

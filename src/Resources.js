@@ -43,7 +43,6 @@ class Resources{
             mound: "./sprites/mound.png",
             
             scroll: "./sprites/scroll.png",
-            scrollZoom: "./sprites/scrollZoom.png",
 
             paper: "./sprites/paper.png",
             sword: "./sprites/sword.png",
