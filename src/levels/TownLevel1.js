@@ -242,7 +242,7 @@ export class TownLevel1 extends Level{
         });
         this.addChild(ninja);
 
-        // Always add hero last, buggy layering if not, weird!
+        // Always add hero last, buggy layering if not, weird, maybe not!
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 

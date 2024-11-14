@@ -90,15 +90,14 @@ export class Hero extends GameObject{
         const input = root.input;
         /**@param {Input} input */
         
+        if (input?.getActionJustPressed("Space") && root.isZoomedIn) {
+            events.emit("TOGGLE_ZOOM");
+            return; // End step to avoid processing movement while zoomed
+        }
+
         // Don't do anything when locked
         if(this.isLocked){
-            // only accept "Space" as input when reading scroll
-            if(input?.getActionJustPressed("Space")){
-                events.emit("END_TEXT_BOX");
-            }
-            else{
-                return;
-            }
+            return;
         }
 
         // stop movement when picking up

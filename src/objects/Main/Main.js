@@ -12,6 +12,9 @@ import { CaveLevel1 } from "../../levels/CaveLevel1.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { TownLevel2 } from "../../levels/TownLevel2.js";
 import { RoomLevel1 } from "../../levels/RoomLevel1.js";
+import { Scrollzoom } from "../Scroll/ScrollZoom.js";
+import { Vector2 } from "../../Vector2.js";
+import { Paperzoom } from "../Paper/Paperzoom.js";
 
 export class Main extends GameObject{
     constructor(){
@@ -20,11 +23,28 @@ export class Main extends GameObject{
         this.input = new Input();
         this.camera = new Camera();
         this.musicManager = new MusicManager();
-        this.hasInteractedWithScroll = false;
+        this.isZoomedIn = false; // Track scroll zoom state
     }
     ready(){
         const inventory = new Inventory();
-        this.addChild(inventory);        
+        this.addChild(inventory);
+
+        // Scroll zoom in logic
+        events.on("TOGGLE_ZOOM", this, () => {
+            if (this.isZoomedIn){
+                this.isZoomedIn = false;
+                // Remove the scroll zoom from the display
+                const scrollInstance = this.children.find(
+                    (child) => child instanceof Scrollzoom
+                );
+                scrollInstance?.destroy();
+                const paperInstance = this.children.find(
+                    (child) => child instanceof Paperzoom
+                );
+                paperInstance?.destroy();
+                events.emit("END_TEXT_BOX"); // Unlock player movement
+            }
+        });
 
         // Change Level handlers
         events.on("CHANGE_LEVEL", this, newLevelInstance => {
@@ -89,7 +109,13 @@ export class Main extends GameObject{
                     withObject.interactSword(this);
                     break;
                 case "Paper": 
-                    withObject.interactPaper(this);
+                    if (!this.isZoomedIn) {
+                        this.isZoomedIn = true;
+                        const paperZoom = new Paperzoom();
+                        paperZoom.position = new Vector2(80, 0);
+                        this.addChild(paperZoom);
+                        events.emit("START_TEXT_BOX");
+                    }
                     break;
                 case "Ring": 
                     withObject.interactRing(this);
@@ -97,14 +123,13 @@ export class Main extends GameObject{
                 case "Necklace": 
                     withObject.interactNecklace(this);
                     break;
-                case "Scroll": 
-                    withObject.interactScroll(this);
-                    if(this.hasInteractedWithScroll == false){
-                        this.hasInteractedWithScroll = true;
-                        events.emit("START_TEXT_BOX");        
-                    }
-                    else{
-                        this.hasInteractedWithScroll = false;
+                case "Scroll":
+                    if (!this.isZoomedIn) {
+                        this.isZoomedIn = true;
+                        const scrollZoom = new Scrollzoom();
+                        scrollZoom.position = new Vector2(80, 0);
+                        this.addChild(scrollZoom);
+                        events.emit("START_TEXT_BOX");
                     }
                     break;
                 case "Mound": 
@@ -168,12 +193,14 @@ export class Main extends GameObject{
             }
         })
 
-        // draw Scroll on screen
-        if (this.hasInteractedWithScroll) {
-            const img = new Image();
-            img.src = "../../sprites/scrollZoom.png";
-            ctx.drawImage(img, 85, 0);
-        }
+        // draw Scroll on !canvas!
+        // if (this.hasInteractedWithScroll) {
+        //     const img = new Image();
+        //     img.src = "../../sprites/scrollZoom.png";
+        //     ctx.drawImage(img, 85, 0);
+        // }
+
+
         // limited view cone
         // if(this.level instanceof TownLevel2){
         //     ctx.beginPath();
