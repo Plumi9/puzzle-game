@@ -12,6 +12,7 @@ class Resources{
             brownDoor: "./sprites/brown-door.png",
             outdoorEntrance: "./sprites/OutdoorEntrance.png",
             bluePortal: "./sprites/bluePortal.png",
+            woodsEntrance: "./sprites/woodsEntrance.png",
 
             // Maps
             black: "./sprites/black.png",
@@ -29,6 +30,8 @@ class Resources{
             room2: "./sprites/room2.png",
 
             dungeonGround: "./sprites/dungeon.png",
+
+            woodsGround: "./sprites/woods.png",
 
             // Items
             rod: "./sprites/rod.png",

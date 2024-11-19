@@ -109,9 +109,7 @@ export class TownLevel1 extends Level{
         });
         this.addChild(brownDoor_npc3);
 
-        const outdoorEntrance = new OutdoorEntrance(gridCells(42), gridCells(3), {
-            location: "OutdoorLevel1",
-        });
+        const outdoorEntrance = new OutdoorEntrance(gridCells(42), gridCells(3));
         this.addChild(outdoorEntrance);
 
         const exit = new Exit(gridCells(-7), gridCells(31));

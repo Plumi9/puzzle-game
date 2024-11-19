@@ -11,6 +11,7 @@ import { gridCells } from "./src/helpers/grid.js";
 import { TownLevel2 } from "./src/levels/TownLevel2.js";
 import { DungeonLevel1 } from "./src/levels/DungeonLevel1.js";
 import { RoomLevel2 } from "./src/levels/RoomLevel2.js";
+import { WoodsLevel1 } from "./src/levels/WoodsLevel1.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -20,10 +21,11 @@ const ctx = canvas.getContext("2d");
 const mainScene = new Main({
     position: new Vector2(0,0)
 })
+mainScene.setLevel(new WoodsLevel1())
 //mainScene.setLevel(new DungeonLevel1());
 //mainScene.setLevel(new RoomLevel1());
 //mainScene.setLevel(new RoomLevel2());
-mainScene.setLevel(new TownLevel1());
+//mainScene.setLevel(new TownLevel1());
 //mainScene.setLevel(new TownLevel2());
 //mainScene.setLevel(new TestLevel());
 //mainScene.setLevel(new TitleScreen());

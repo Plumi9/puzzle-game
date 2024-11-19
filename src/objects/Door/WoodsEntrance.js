@@ -4,35 +4,30 @@ import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { events } from "../../Events.js";
 import { gridCells } from "../../helpers/grid.js";
-import { WoodsLevel1 } from "../../levels/WoodsLevel1.js";
+import { TownLevel1 } from "../../levels/TownLevel1.js";
 
-export class OutdoorEntrance extends GameObject{
+export class WoodsEntrance extends GameObject{
     constructor(x,y){
         super({
             position: new Vector2(x,y),
         });
         const sprite = new Sprite({
-            resource: resources.images.outdoorEntrance,
-            frameSize: new Vector2(64, 64),
-            position: new Vector2(0, -16),
+            resource: resources.images.woodsEntrance,
+            frameSize: new Vector2(32, 48),
+            position: new Vector2(-8,-16)
         })
         this.addChild(sprite)
 
         // Opt into being solid
         this.isSolid = true;
 
-        // location it leads to
-        this.location = location.location;
-        this.xCoord = location.xCoord;
-        this.yCoord = location.yCoord;
-
         this.drawLayer = "FLOOR";
 
     }
 
-    changeLocationOutdoorEntrance(){
-        events.emit("CHANGE_LEVEL", new WoodsLevel1({
-            heroPosition: new Vector2(gridCells(16),gridCells(4))
+    changeLocationWoodsEntrance(){
+        events.emit("CHANGE_LEVEL", new TownLevel1({
+            heroPosition: new Vector2(gridCells(42),gridCells(4))
         }));
     }
 }

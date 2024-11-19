@@ -87,14 +87,17 @@ export class Main extends GameObject{
             if(typeof withObject.changeLocationRoom === "function"){
                 withObject.changeLocationRoom();
             }
-            if(typeof withObject.changeLocationCave === "function"){
-                withObject.changeLocationCave();
+            if(typeof withObject.changeLocationOutdoorEntrance === "function"){
+                withObject.changeLocationOutdoorEntrance();
             }
             if(typeof withObject.changeLocationPortal === "function"){
                 withObject.changeLocationPortal();
             }
             if(typeof withObject.changeLocationGreenDoor === "function"){
                 withObject.changeLocationGreenDoor();
+            }
+            if(typeof withObject.changeLocationWoodsEntrance === "function"){
+                withObject.changeLocationWoodsEntrance();
             }
 
             // Props Handler
@@ -187,35 +190,43 @@ export class Main extends GameObject{
     }
 
     drawForeground(ctx){
+        // Do this before drawing other in foreground
+        // otherwise textbox and HUD items are behind black
+        // ctx.beginPath();
+        // ctx.moveTo(0,0);
+        // ctx.lineTo(320,0);
+        // ctx.lineTo(320,180);
+        // ctx.lineTo(0,180);
+        // ctx.lineTo(0,0);
+        // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
+        // ctx.fillStyle = "rgb(0 0 0 / 100%)"; // full black
+        // ctx.fill();
+
+        // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Inner circle
+        // ctx.fillStyle = "rgb(0 0 0 / 50%)"; // Opacity in the middle
+        // ctx.fill();
+
         this.children.forEach(child => {
             if(child.drawLayer === "HUD"){
                 child.draw(ctx,0,0);
             }
         })
 
-        // draw Scroll on !canvas!
-        // if (this.hasInteractedWithScroll) {
-        //     const img = new Image();
-        //     img.src = "../../sprites/scrollZoom.png";
-        //     ctx.drawImage(img, 85, 0);
-        // }
-
-
         // limited view cone
         // if(this.level instanceof TownLevel2){
-        //     ctx.beginPath();
-        //     ctx.moveTo(0,0);
-        //     ctx.lineTo(320,0);
-        //     ctx.lineTo(320,180);
-        //     ctx.lineTo(0,180);
-        //     ctx.lineTo(0,0);
-        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
-        //     ctx.fillStyle = "rgb(0 0 0 / 100%)";
-        //     ctx.fill();
-
-        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); 
-        //     ctx.fillStyle = "rgb(0 0 0 / 50%)";
-        //     ctx.fill();
+            // ctx.beginPath();
+            // ctx.moveTo(0,0);
+            // ctx.lineTo(320,0);
+            // ctx.lineTo(320,180);
+            // ctx.lineTo(0,180);
+            // ctx.lineTo(0,0);
+            // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
+            // ctx.fillStyle = "rgb(0 0 0 / 100%)"; // full black
+            // ctx.fill();
+    
+            // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Inner circle
+            // ctx.fillStyle = "rgb(0 0 0 / 50%)"; // Opacity in the middle
+            // ctx.fill();
         // }
     }
 }
