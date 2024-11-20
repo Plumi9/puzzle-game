@@ -140,7 +140,7 @@ export class TownLevel1 extends Level{
                     bypass: [],
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 2,
         });
         this.addChild(girl);
         const knight = new Npc10(gridCells(2), gridCells(1), {
@@ -158,7 +158,7 @@ export class TownLevel1 extends Level{
                     addsFlag: "TALKED_TO_KNIGHT2",
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 3,
         });
         this.addChild(knight);
         const healer = new Npc11(gridCells(3), gridCells(1), {
@@ -176,7 +176,7 @@ export class TownLevel1 extends Level{
                     addsFlag: "TALKED_TO_HEALER2",
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 4,
         });
         this.addChild(healer);
         const hunter = new Npc19(gridCells(6), gridCells(1), {
@@ -200,7 +200,7 @@ export class TownLevel1 extends Level{
                     addsFlag: "TALKED_TO_HUNTER2",
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 5,
         });
         this.addChild(hunter);
         const wizard = new Npc20(gridCells(4), gridCells(1), {
@@ -218,7 +218,7 @@ export class TownLevel1 extends Level{
                     addsFlag: "TALKED_TO_WIZARD2",
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 6,
         });
         this.addChild(wizard);
         const ninja = new Npc26(gridCells(5), gridCells(1), {
@@ -236,7 +236,7 @@ export class TownLevel1 extends Level{
                     addsFlag: "TALKED_TO_NINJA2",
                 },
             ],
-            portraitFrame: 0,
+            portraitFrame: 7,
         });
         this.addChild(ninja);
 

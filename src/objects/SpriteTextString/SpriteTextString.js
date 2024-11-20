@@ -52,7 +52,7 @@ export class SpriteTextString extends GameObject{
         // Create a portrait
         this.portrait = new Sprite({
             resource: resources.images.portraits,
-            hFrames: 4,
+            hFrames: 8,
             frame: config.portraitFrame ?? 0,
         })
 
