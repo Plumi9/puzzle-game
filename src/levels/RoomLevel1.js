@@ -1,5 +1,6 @@
 import { events } from "../Events.js";
 import { gridCells } from "../helpers/grid.js";
+import { Bed } from "../objects/Bed/Bed.js";
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
 import { GreenDoor } from "../objects/Door/GreenDoor.js";
 import { Exit } from "../objects/Exit/Exit.js";
@@ -26,7 +27,7 @@ export class RoomLevel1 extends Level{
         })
         const roomSprite = new Sprite({
             resource: resources.images.room,
-            frameSize: new Vector2(320, 180),
+            frameSize: new Vector2(360, 280),
         })
         this.addChild(roomSprite);
 
@@ -35,14 +36,17 @@ export class RoomLevel1 extends Level{
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 
-        const door = new BrownDoor(gridCells(2),gridCells(1), { 
+        const door = new BrownDoor(gridCells(2),gridCells(7), { 
             location: 'TownLevel1',
             heroPosition: new Vector2(gridCells(10),gridCells(14)),
         });
         this.addChild(door);
 
-        const fireplace = new Fireplace(gridCells(7),gridCells(2));
+        const fireplace = new Fireplace(gridCells(7),gridCells(8));
         this.addChild(fireplace);
+
+        const bed = new Bed(gridCells(18),gridCells(3));
+        this.addChild(bed);
 
         // Collision
         this.walls = new Set();

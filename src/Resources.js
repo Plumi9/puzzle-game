@@ -41,6 +41,8 @@ class Resources{
             // Interactive Props
             fireplace_on: "./sprites/fireplace_on.png",
             fireplace_off: "./sprites/fireplace_off.png",
+
+            bed: "./sprites/bed.png",
             emptyPotion: "./sprites/emptyPotion.png",
             chest: "./sprites/chest.png",
             mound: "./sprites/mound.png",

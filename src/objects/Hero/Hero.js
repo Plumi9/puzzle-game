@@ -116,7 +116,19 @@ export class Hero extends GameObject{
                 events.emit("HERO_REQUESTS_ACTION", objectAtPosition);
             }
         }
-        
+
+        // maybe implement interact and inspect as different buttons
+        if(input?.getActionJustPressed("KeyE")){
+            // Look for an object at the next space the player is facing
+            const objectAtPosition = this.parent.children.find(child => {
+                return child.position.matches(this.position.toNeighbor(this.facingDirection))
+            })
+            if(objectAtPosition){
+                console.log("You want to interact with this thang", objectAtPosition)
+                events.emit("HERO_REQUESTS_INTERACTION", objectAtPosition);
+            }
+        }
+
         // set player Speed
         const SPEED = 10;
 

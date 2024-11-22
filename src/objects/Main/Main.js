@@ -51,6 +51,17 @@ export class Main extends GameObject{
             this.setLevel(newLevelInstance);
         })
 
+        events.on("HERO_REQUESTS_INTERACTION",this,(withObject) => {
+            console.log(withObject.constructor.name);
+
+            switch(withObject.constructor.name){
+                case "Bed":
+                    withObject.interactBed(this);
+                    break;
+            }
+        })
+
+        // TODO: Change to HERO_REQUESTS_INSPECTION and sort
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
             console.log(withObject.constructor.name);
@@ -146,6 +157,9 @@ export class Main extends GameObject{
                     break;
                 case "Fireplace": 
                     withObject.interactFireplace(this,withObject);
+                    break;
+                case "Bed": 
+                    withObject.interactBed(this,withObject);
                     break;
             }
         })

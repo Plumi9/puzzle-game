@@ -13,7 +13,7 @@ export class Input {
     document.addEventListener("keydown", (e) => {
 
         this.keys[e.code] = true;
-
+        
         // Also check for dedicated direction list
         if (e.code === "ArrowUp" || e.code === "KeyW") {
         this.onArrowPressed(UP);
