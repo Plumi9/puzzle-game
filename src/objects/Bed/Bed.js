@@ -46,7 +46,7 @@ export class Bed extends GameObject{
             textbox.destroy();
             events.off(endingSub);
 
-            
+            //tp to next "level"
         })
     }
 

@@ -56,71 +56,53 @@ export class TownLevel1 extends Level{
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const chest = new Chest(gridCells(0),gridCells(-1));
-        this.addChild(chest);
-
-        const emptyPotion = new EmptyPotion(gridCells(-1),gridCells(-1));
-        this.addChild(emptyPotion);
-
-        const sword = new Sword(gridCells(-2),gridCells(-1));
-        this.addChild(sword)
-
-        const paper = new Paper(gridCells(-3),gridCells(-1));
-        this.addChild(paper)
-
-        const ring = new Ring(gridCells(-4),gridCells(-1));
-        this.addChild(ring);
-
-        const necklace = new Necklace(gridCells(-5),gridCells(-1));
-        this.addChild(necklace);
-
-        const scroll = new Scroll(gridCells(-6),gridCells(-1));
-        this.addChild(scroll);
-
-        const mound = new Mound(gridCells(-7),gridCells(-1))
-        this.addChild(mound);
-
-        const pouch = new Pouch(gridCells(-8),gridCells(-1))
-        this.addChild(pouch);
-
-        const book = new Book(gridCells(-9),gridCells(-1))
-        this.addChild(book);
-
-        const key = new Key(gridCells(-10),gridCells(-1))
-        this.addChild(key);
-
-        const fireplace = new Fireplace(gridCells(-11),gridCells(-1));
-        this.addChild(fireplace);
-
-        const bed = new Bed(gridCells(1), gridCells(-2));
-        this.addChild(bed)
-
-        const brownDoor_npc1 = new BrownDoor(gridCells(10), gridCells(13), {
+        const brownDoor_RoomLevel1 = new BrownDoor(gridCells(10), gridCells(13), {
             location: "RoomLevel1",
             heroPosition: new Vector2(gridCells(2),gridCells(8)),
         });
-        this.addChild(brownDoor_npc1);
+        this.addChild(brownDoor_RoomLevel1);
 
-        const brownDoor_npc2 = new BrownDoor(gridCells(22), gridCells(13), {
+        const brownDoor_RoomLevel1_2 = new BrownDoor(gridCells(3), gridCells(39), {
+            location: "RoomLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        });
+        this.addChild(brownDoor_RoomLevel1_2);
+
+        const brownDoor_RoomLevel1_3 = new BrownDoor(gridCells(16), gridCells(39), {
+            location: "RoomLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        });
+        this.addChild(brownDoor_RoomLevel1_3);
+
+        const brownDoor_RoomLevel1_4 = new BrownDoor(gridCells(12), gridCells(3), {
+            location: "RoomLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        });
+        this.addChild(brownDoor_RoomLevel1_4);
+
+        const brownDoor_RoomLevel1_5 = new BrownDoor(gridCells(26), gridCells(3), {
+            location: "RoomLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        });
+        this.addChild(brownDoor_RoomLevel1_5);
+
+        const brownDoor_RoomLevel2 = new BrownDoor(gridCells(22), gridCells(13), {
             location: "RoomLevel2",
             heroPosition: new Vector2(gridCells(2),gridCells(2)),
         });
-        this.addChild(brownDoor_npc2);
+        this.addChild(brownDoor_RoomLevel2);
 
-        const brownDoor_npc3 = new BrownDoor(gridCells(41), gridCells(11), {
+        const brownDoor_DungeonLevel1 = new BrownDoor(gridCells(41), gridCells(11), {
             location: "DungeonLevel1",
             heroPosition: new Vector2(gridCells(2),gridCells(3)),
         });
-        this.addChild(brownDoor_npc3);
+        this.addChild(brownDoor_DungeonLevel1);
 
         const outdoorEntrance = new OutdoorEntrance(gridCells(42), gridCells(3));
         this.addChild(outdoorEntrance);
 
         const exit = new Exit(gridCells(-7), gridCells(31));
         this.addChild(exit);
-
-        const bluePortal = new BluePortal(gridCells(2), gridCells(5));
-        this.addChild(bluePortal);
 
         this.walls = new Set();
 

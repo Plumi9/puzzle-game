@@ -15,7 +15,7 @@ import { TALKED_TO_A, TALKED_TO_B } from "../StoryFlags.js";
 import { Vector2 } from "../Vector2.js";
 import { OutdoorLevel1 } from "./OutdoorLevel1.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(6), gridCells(5));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(2), gridCells(8));
 
 export class RoomLevel1 extends Level{
     constructor(params={}){
@@ -33,9 +33,6 @@ export class RoomLevel1 extends Level{
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
-        this.addChild(hero);
-
         const door = new BrownDoor(gridCells(2),gridCells(7), { 
             location: 'TownLevel1',
             heroPosition: new Vector2(gridCells(10),gridCells(14)),
@@ -47,6 +44,9 @@ export class RoomLevel1 extends Level{
 
         const bed = new Bed(gridCells(18),gridCells(3));
         this.addChild(bed);
+
+        const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
+        this.addChild(hero);
 
         // Collision
         this.walls = new Set();

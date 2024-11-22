@@ -54,8 +54,22 @@ import { Npc47 } from "../objects/NPC/Npc47.js";
 import { Npc48 } from "../objects/NPC/Npc48.js";
 import { Npc49 } from "../objects/NPC/Npc49.js";
 import { Npc50 } from "../objects/NPC/Npc50.js";
+import { Chest } from "../objects/Chest/Chest.js";
+import { EmptyPotion } from "../objects/Potion/emptyPotion.js";
+import { Sword } from "../objects/Sword/sword.js";
+import { Paper } from "../objects/Paper/Paper.js";
+import { Ring } from "../objects/Ring/Ring.js";
+import { Necklace } from "../objects/Necklace/Necklace.js";
+import { Scroll } from "../objects/Scroll/Scroll.js";
+import { Mound } from "../objects/Mound/Mound.js";
+import { Pouch } from "../objects/Pouch/Pouch.js";
+import { Book } from "../objects/Book/Book.js";
+import { Key } from "../objects/Key/Key.js";
+import { Fireplace } from "../objects/Fireplace/Fireplace.js";
+import { Bed } from "../objects/Bed/Bed.js";
+import { BluePortal } from "../objects/Door/BluePortal.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(9), gridCells(7));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
 export class TestLevel extends Level{
     constructor(params={}){
@@ -70,6 +84,49 @@ export class TestLevel extends Level{
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 
+        
+        const chest = new Chest(gridCells(0),gridCells(-1));
+        this.addChild(chest);
+        
+        const emptyPotion = new EmptyPotion(gridCells(-1),gridCells(-1));
+        this.addChild(emptyPotion);
+
+        const sword = new Sword(gridCells(-2),gridCells(-1));
+        this.addChild(sword)
+
+        const paper = new Paper(gridCells(-3),gridCells(-1));
+        this.addChild(paper)
+
+        const ring = new Ring(gridCells(-4),gridCells(-1));
+        this.addChild(ring);
+
+        const necklace = new Necklace(gridCells(-5),gridCells(-1));
+        this.addChild(necklace);
+
+        const scroll = new Scroll(gridCells(-6),gridCells(-1));
+        this.addChild(scroll);
+
+        const mound = new Mound(gridCells(-7),gridCells(-1))
+        this.addChild(mound);
+
+        const pouch = new Pouch(gridCells(-8),gridCells(-1))
+        this.addChild(pouch);
+
+        const book = new Book(gridCells(-9),gridCells(-1))
+        this.addChild(book);
+
+        const key = new Key(gridCells(-10),gridCells(-1))
+        this.addChild(key);
+
+        const fireplace = new Fireplace(gridCells(-11),gridCells(-1));
+        this.addChild(fireplace);
+
+        const bed = new Bed(gridCells(1), gridCells(-2));
+        this.addChild(bed)
+
+        const bluePortal = new BluePortal(gridCells(5), gridCells(-1));
+        this.addChild(bluePortal);
+
         const npc_chosen1 = new Npc1(gridCells(1), gridCells(8));
         this.addChild(npc_chosen1);
         const npc_chosen2 = new Npc10(gridCells(2), gridCells(8));
@@ -82,8 +139,6 @@ export class TestLevel extends Level{
         this.addChild(npc_chosen5);
         const npc_chosen6 = new Npc19(gridCells(6), gridCells(8));
         this.addChild(npc_chosen6);
-        const npc_chosen7 = new Npc42(gridCells(7), gridCells(8));
-        this.addChild(npc_chosen7);
 
 
         const npc1 = new Npc1(gridCells(1), gridCells(3));
