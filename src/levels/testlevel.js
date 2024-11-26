@@ -68,8 +68,9 @@ import { Key } from "../objects/Key/Key.js";
 import { Fireplace } from "../objects/Fireplace/Fireplace.js";
 import { Bed } from "../objects/Bed/Bed.js";
 import { BluePortal } from "../objects/Door/BluePortal.js";
+import { TALKED_TO_A, TALKED_TO_B, TALKED_TO_GIRL, TALKED_TO_HEALER, TALKED_TO_HUNTER, TALKED_TO_KNIGHT, TALKED_TO_NINJA, TALKED_TO_WIZARD } from "../StoryFlags.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(1), gridCells(7));
 
 export class TestLevel extends Level{
     constructor(params={}){
@@ -127,8 +128,33 @@ export class TestLevel extends Level{
         const bluePortal = new BluePortal(gridCells(5), gridCells(-1));
         this.addChild(bluePortal);
 
-        const npc_chosen1 = new Npc1(gridCells(1), gridCells(8));
-        this.addChild(npc_chosen1);
+        // const npc_chosen1 = new Npc1(gridCells(1), gridCells(8));
+        // this.addChild(npc_chosen1);
+
+        const girl = new Npc1(gridCells(1), gridCells(8),{
+            content: [
+                {
+                    string: "Hey there! I am Lila! If you are new to Midvale, I can show you around. Just be careful, not everyone here is as friendly as they seem! dsajd dsadas dsad dsa",
+                    requires: [],
+                    bypass: [TALKED_TO_GIRL],
+                    addsFlag: TALKED_TO_GIRL,
+                },
+                {
+                    string: "I love this town, but sometimes it feels like everyone has secrets. I just wish people would be honest with each other.",
+                    requires: [],
+                    bypass: ["TALKED_TO_GIRL2"],
+                    addsFlag: "TALKED_TO_GIRL2",
+                },
+                {
+                    string: "33333",
+                    requires: ["TALKED_TO_GIRL2"],
+                    bypass: [],
+                },
+            ],
+            portraitFrame: 2,
+        });
+        this.addChild(girl);
+
         const npc_chosen2 = new Npc10(gridCells(2), gridCells(8));
         this.addChild(npc_chosen2);
         const npc_chosen3 = new Npc11(gridCells(3), gridCells(8));

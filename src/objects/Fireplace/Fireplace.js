@@ -20,6 +20,7 @@ export class Fireplace extends GameObject{
         this.addChild(sprite)
 
         this.isOn = true;
+        this.hasKey = true;
 
         this.isSolid = true;
 
@@ -28,24 +29,58 @@ export class Fireplace extends GameObject{
                 string: "I should put out the fire.",
             },
             {
+                string: "There is something in the ashes!",
+            },
+            {
                 string: "No fire, no bitches!",
             },
         ]
     }
 
-    toggleFireplaceOff(fireplace_obj){
-        let first_sprite = fireplace_obj.children[0];
-        fireplace_obj.removeChild(first_sprite);
-        const sprite = new Sprite({
-            resource: resources.images.fireplace_off,
-            frameSize: new Vector2(26,41),
-            position: new Vector2(-5,-30),
-        })
-        fireplace_obj.addChild(sprite);
+    toggleFireplaceSprite(fireplace_obj){
+        if(!this.isOn && !this.hasKey){
+            return;
+        }
+        else if(this.isOn){
+            let first_sprite = fireplace_obj.children[0];
+            fireplace_obj.removeChild(first_sprite);
+            const sprite = new Sprite({
+                resource: resources.images.fireplace_off_key,
+                frameSize: new Vector2(26,41),
+                position: new Vector2(-5,-30),
+            })
+            fireplace_obj.addChild(sprite);
+        }
+        else if(this.hasKey){
+            let first_sprite = fireplace_obj.children[0];
+            fireplace_obj.removeChild(first_sprite);
+            const sprite = new Sprite({
+                resource: resources.images.fireplace_off,
+                frameSize: new Vector2(26,41),
+                position: new Vector2(-5,-30),
+            })
+            fireplace_obj.addChild(sprite);
+        }
     }
 
     interactFireplace(mainScene,fireplace_obj){
-        if(this.isOn){
+        if(!this.isOn && !this.hasKey){
+            // Show the textbox
+            const textbox = new SpriteTextString({
+                string: this.content[2].string,
+                portraitFrame: 0,
+            });
+            mainScene.addChild(textbox);
+
+            events.emit("START_TEXT_BOX");
+
+            // Unsubscribe from this textbox after its destroyed
+            const endingSub = events.on("END_TEXT_BOX", this, () => {
+                textbox.destroy();
+                events.off(endingSub);
+            })
+        }
+        else if(this.isOn){
             // Show the textbox
             const textbox = new SpriteTextString({
                 string: this.content[0].string,
@@ -59,12 +94,11 @@ export class Fireplace extends GameObject{
             const endingSub = events.on("END_TEXT_BOX", this, () => {
                 textbox.destroy();
                 events.off(endingSub);
-
-                this.toggleFireplaceOff(fireplace_obj);
+                this.toggleFireplaceSprite(fireplace_obj);
+                this.isOn = false;
             })
-            this.isOn = false;
         }
-        else{
+        else if(this.hasKey){
             const textbox = new SpriteTextString({
                 string: this.content[1].string,
                 portraitFrame: 0,
@@ -77,6 +111,13 @@ export class Fireplace extends GameObject{
             const endingSub = events.on("END_TEXT_BOX", this, () => {
                 textbox.destroy();
                 events.off(endingSub);
+            
+                this.toggleFireplaceSprite(fireplace_obj)
+
+                events.emit("HERO_PICKS_UP_ITEM", {
+                    image: resources.images.key
+                })
+                this.hasKey = false;
             })
         }
     }

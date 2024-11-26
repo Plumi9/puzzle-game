@@ -106,7 +106,7 @@ export class TownLevel1 extends Level{
 
         this.walls = new Set();
 
-        const girl = new Npc1(gridCells(1), gridCells(1),{
+        const girl = new Npc1(gridCells(11), gridCells(13),{
             content: [
                 {
                     string: "Hey there! I am Lila! If you are new to Midvale, I can show you around. Just be careful, not everyone here is as friendly as they seem! dsajd dsadas dsad dsa",
@@ -129,7 +129,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 2,
         });
         this.addChild(girl);
-        const knight = new Npc10(gridCells(2), gridCells(1), {
+        const knight = new Npc10(gridCells(17), gridCells(39), {
             content: [
                 {
                     string: "Ah, a newcomer! I'm Alaric, defender of Midvale. Proud to meet you. I am a little busy - there are rumors of trouble in the woods.",
@@ -147,7 +147,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 3,
         });
         this.addChild(knight);
-        const healer = new Npc11(gridCells(3), gridCells(1), {
+        const healer = new Npc11(gridCells(13), gridCells(3), {
             content: [
                 {
                     string: "Welcome to Midvale! I'm Elara, the healer. If you need a remedy or a friendly ear, I'm here. But I often find solace in my herbs. They help me clear my mind.",
@@ -165,7 +165,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 4,
         });
         this.addChild(healer);
-        const hunter = new Npc19(gridCells(6), gridCells(1), {
+        const hunter = new Npc19(gridCells(27), gridCells(3), {
             content: [
                 {
                     string: "I'm gay",
@@ -189,7 +189,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 5,
         });
         this.addChild(hunter);
-        const wizard = new Npc20(gridCells(4), gridCells(1), {
+        const wizard = new Npc20(gridCells(4), gridCells(39), {
             content: [
                 {
                     string: "Hmm, a newcomer. I'm Alden, the wizard. If you seek knowledge, you may ask me - or not. Most prefer the simplicity of life over the complexities of magic.",

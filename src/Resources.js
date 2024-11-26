@@ -24,7 +24,7 @@ class Resources{
             cave: "./sprites/cave.png",
             caveGround: "./sprites/cave-ground.png",
 
-            townGround: "./sprites/town-ground.png",
+            townGround: "./sprites/townGround.png",
 
             room: "./sprites/room.png",
             room2: "./sprites/room2.png",
@@ -41,6 +41,7 @@ class Resources{
             // Interactive Props
             fireplace_on: "./sprites/fireplace_on.png",
             fireplace_off: "./sprites/fireplace_off.png",
+            fireplace_off_key: "./sprites/fireplace_off_key.png",
 
             bed: "./sprites/bed.png",
             emptyPotion: "./sprites/emptyPotion.png",
