@@ -30,6 +30,7 @@ export class Fireplace extends GameObject{
             },
             {
                 string: "There is something in the ashes!",
+                addsFlag: "FOUND_KEY",
             },
             {
                 string: "No fire, no bitches!",
@@ -119,6 +120,11 @@ export class Fireplace extends GameObject{
                 })
                 this.hasKey = false;
             })
+            
+            // Add story flag for picking up key
+            if(this.content[1].addsFlag){
+                storyFlags.add(this.content[1].addsFlag);
+            }
         }
     }
 }

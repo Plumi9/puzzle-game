@@ -11,7 +11,9 @@ import { TitleScreen } from "../../levels/TitleScreen.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
+import { storyFlags } from "../../StoryFlags.js";
 import { Vector2 } from "../../Vector2.js";
+import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 
 export class BrownDoor extends GameObject{
     constructor(x,y,location={}){ // location needs to have location and heroPosition
@@ -25,17 +27,19 @@ export class BrownDoor extends GameObject{
         })
         this.addChild(sprite)
 
-        // Opt into being solid
         this.isSolid = true;
-        
+        //this.drawLayer = "FLOOR";
+
         // location it leads to
         this.location = location.location;
         this.heroPosition = location.heroPosition ?? new Vector2(gridCells(2),gridCells(2));
 
-        this.drawLayer = "FLOOR";
+        this.content = {
+            string: "I need a key to open this particular door."
+        };
     }
 
-    changeLocationRoom(){
+    changeLocationBrownDoor(mainScene){
         switch(this.location){
             case 'CaveLevel1':
                 events.emit("CHANGE_LEVEL", new CaveLevel1({
@@ -72,10 +76,27 @@ export class BrownDoor extends GameObject{
                     heroPosition: this.heroPosition,
                 }));
                 break;
-            case 'DungeonLevel1': 
-                events.emit("CHANGE_LEVEL", new DungeonLevel1({
-                    heroPosition: this.heroPosition,
-                }));
+            case 'DungeonLevel1':
+                // check for story flag "KEY_FOUND"
+                if(storyFlags.flags.has("FOUND_KEY")){
+                    events.emit("CHANGE_LEVEL", new DungeonLevel1({
+                        heroPosition: this.heroPosition,
+                    }));
+                }
+                else{
+                    // Show the textbox
+                    const textbox = new SpriteTextString({
+                        string: this.content.string,
+                    });
+                    mainScene.addChild(textbox);
+                    events.emit("START_TEXT_BOX");
+
+                    // Unsubscribe from this textbox after its destroyed
+                    const endingSub = events.on("END_TEXT_BOX", this, () => {
+                        textbox.destroy();
+                        events.off(endingSub);
+                    })
+                }
                 break;
         }
     }

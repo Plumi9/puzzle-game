@@ -69,8 +69,9 @@ import { Fireplace } from "../objects/Fireplace/Fireplace.js";
 import { Bed } from "../objects/Bed/Bed.js";
 import { BluePortal } from "../objects/Door/BluePortal.js";
 import { TALKED_TO_A, TALKED_TO_B, TALKED_TO_GIRL, TALKED_TO_HEALER, TALKED_TO_HUNTER, TALKED_TO_KNIGHT, TALKED_TO_NINJA, TALKED_TO_WIZARD } from "../StoryFlags.js";
+import { BrownDoor } from "../objects/Door/BrownDoor.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(1), gridCells(7));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(7));
 
 export class TestLevel extends Level{
     constructor(params={}){
@@ -85,7 +86,12 @@ export class TestLevel extends Level{
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 
-        
+        const brownDoor_DungeonLevel1 = new BrownDoor(gridCells(0), gridCells(6), {
+            location: "DungeonLevel1",
+            heroPosition: new Vector2(gridCells(2),gridCells(3)),
+        });
+        this.addChild(brownDoor_DungeonLevel1);
+
         const chest = new Chest(gridCells(0),gridCells(-1));
         this.addChild(chest);
         

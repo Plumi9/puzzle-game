@@ -18,7 +18,8 @@ export class Chest extends GameObject{
         this.addChild(sprite);
         
         this.isSolid = true;
-
+        this.drawLayer = "FLOOR";
+        
         this.content = {
                 string: "Found something",
                 addsFlag: "FOUND_SHOVEL",

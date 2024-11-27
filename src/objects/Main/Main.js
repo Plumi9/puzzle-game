@@ -95,8 +95,8 @@ export class Main extends GameObject{
 
             // Door handler
             // TODO: CHANGE TO SWITCH STATEMENT
-            if(typeof withObject.changeLocationRoom === "function"){
-                withObject.changeLocationRoom();
+            if(typeof withObject.changeLocationBrownDoor === "function"){
+                withObject.changeLocationBrownDoor(this);
             }
             if(typeof withObject.changeLocationOutdoorEntrance === "function"){
                 withObject.changeLocationOutdoorEntrance();
