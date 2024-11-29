@@ -1,5 +1,6 @@
 import { events } from "../Events.js";
 import { gridCells } from "../helpers/grid.js";
+import { Chest } from "../objects/Chest/Chest.js";
 import { Exit } from "../objects/Exit/Exit.js";
 import { Hero } from "../objects/Hero/Hero.js";
 import { Level } from "../objects/Level/Level.js";
@@ -38,6 +39,9 @@ export class CaveLevel1 extends Level{
 
         const rod = new Rod(gridCells(9), gridCells(6));
         this.addChild(rod); 
+
+        const chest = new Chest(gridCells(8),gridCells(1));
+        this.addChild(chest);
 
         const npc1 = new Npc(gridCells(7), gridCells(5), {
             content: [

@@ -113,8 +113,14 @@ export class Main extends GameObject{
 
             // Props Handler
             switch(withObject.constructor.name){
+                case "Crowbar":
+                    withObject.interactCrowbar(this);
+                    break;
                 case "Chest":
-                    withObject.interactChest(this);
+                    withObject.interactChest(this,withObject);
+                    break;
+                case "PurpleChest":
+                    withObject.interactPurpleChest(this,withObject);
                     break;
                 case "EmptyPotion":
                     withObject.interactPotion(this);

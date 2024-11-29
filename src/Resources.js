@@ -37,15 +37,21 @@ class Resources{
             rod: "./sprites/rod.png",
             shovel: "./sprites/shovel.png",
             key: "./sprites/key.png",
+            crowbar: "./sprites/crowbar.png",
 
             // Interactive Props
             fireplace_on: "./sprites/fireplace_on.png",
             fireplace_off: "./sprites/fireplace_off.png",
             fireplace_off_key: "./sprites/fireplace_off_key.png",
 
+            chest: "./sprites/chest.png",
+            openChest: "./sprites/openChest.png",
+            purpleChest: "./sprites/purpleChest.png",
+            openPurpleChest: "./sprites/openPurpleChest.png",
+
             bed: "./sprites/bed.png",
             emptyPotion: "./sprites/emptyPotion.png",
-            chest: "./sprites/chest.png",
+
             mound: "./sprites/mound.png",
             
             scroll: "./sprites/scroll.png",
@@ -53,13 +59,14 @@ class Resources{
 
             paper: "./sprites/paper.png",
             paperZoom: "./sprites/paperZoom.png",
-            
-            sword: "./sprites/sword.png",
+
+            // maybe put these in the inventory as well
             ring: "./sprites/ring.png",
             necklace: "./sprites/necklace.png",
+            sword: "./sprites/sword.png",
+
             pouch: "./sprites/pouch.png",
             book: "./sprites/book.png",
-
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",

@@ -19,6 +19,7 @@ export class Fireplace extends GameObject{
         })
         this.addChild(sprite)
 
+        // keeping track of states
         this.isOn = true;
         this.hasKey = true;
 

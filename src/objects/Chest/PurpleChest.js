@@ -6,13 +6,13 @@ import { Vector2 } from "../../Vector2.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { storyFlags } from "../../StoryFlags.js";
 
-export class Chest extends GameObject{
+export class PurpleChest extends GameObject{
     constructor(x,y){
         super({
             position: new Vector2(x,y)
         })
         const sprite = new Sprite({
-            resource: resources.images.chest,
+            resource: resources.images.purpleChest,
             position: new Vector2(1,-2),
         })
         this.addChild(sprite);
@@ -22,25 +22,25 @@ export class Chest extends GameObject{
 
         this.isSolid = true;
         this.drawLayer = "FLOOR";
-
+        
         this.content = [
             {
-                string: "Found something!",
+                string: "Found something in PURPLE Chest!",
                 addsFlag: "FOUND_SOMETHING",
             },
             {
-                string: "Can't close the chest. Stupid Dev!",
+                string: "Can't close the PURPLE chest. Stupid Dev!",
             }
         ];
     }
 
-    openChest(chestInstance){
+    openPurpleChest(chestInstance){
         if(!this.isOpen){
             let sprite = chestInstance.children[0];
             chestInstance.removeChild(sprite);
 
             sprite = new Sprite({
-                resource: resources.images.openChest,
+                resource: resources.images.openPurpleChest,
                 position: new Vector2(1,-2),
             })
             this.addChild(sprite);
@@ -48,7 +48,7 @@ export class Chest extends GameObject{
         }
     }
 
-    interactChest(mainScene, chestInstance){
+    interactPurpleChest(mainScene, chestInstance){
         if(!this.isOpen){
             // Adds story Flag
             if(this.content.addsFlag){
@@ -69,7 +69,7 @@ export class Chest extends GameObject{
                 textbox.destroy();
                 events.off(endingSub);
             })
-            this.openChest(chestInstance)
+            this.openPurpleChest(chestInstance)
         }
         else{
             // Adds story Flag

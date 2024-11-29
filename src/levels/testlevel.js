@@ -70,6 +70,8 @@ import { Bed } from "../objects/Bed/Bed.js";
 import { BluePortal } from "../objects/Door/BluePortal.js";
 import { TALKED_TO_A, TALKED_TO_B, TALKED_TO_GIRL, TALKED_TO_HEALER, TALKED_TO_HUNTER, TALKED_TO_KNIGHT, TALKED_TO_NINJA, TALKED_TO_WIZARD } from "../StoryFlags.js";
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
+import { Crowbar } from "../objects/Crowbar/Crowbar.js";
+import { PurpleChest } from "../objects/Chest/PurpleChest.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(7));
 
@@ -95,6 +97,9 @@ export class TestLevel extends Level{
         const chest = new Chest(gridCells(0),gridCells(-1));
         this.addChild(chest);
         
+        const purpleChest = new PurpleChest(gridCells(1), gridCells(-1));
+        this.addChild(purpleChest);
+
         const emptyPotion = new EmptyPotion(gridCells(-1),gridCells(-1));
         this.addChild(emptyPotion);
 
@@ -128,8 +133,11 @@ export class TestLevel extends Level{
         const fireplace = new Fireplace(gridCells(-11),gridCells(-1));
         this.addChild(fireplace);
 
-        const bed = new Bed(gridCells(1), gridCells(-2));
-        this.addChild(bed)
+        const bed = new Bed(gridCells(2), gridCells(-2));
+        this.addChild(bed);
+        
+        const crowbar = new Crowbar(gridCells(-10),gridCells(1));
+        this.addChild(crowbar); 
 
         const bluePortal = new BluePortal(gridCells(5), gridCells(-1));
         this.addChild(bluePortal);
