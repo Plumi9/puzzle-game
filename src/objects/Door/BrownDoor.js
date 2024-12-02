@@ -6,7 +6,7 @@ import { DungeonLevel1 } from "../../levels/DungeonLevel1.js";
 import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { RoomLevel1 } from "../../levels/RoomLevel1.js";
 import { RoomLevel2 } from "../../levels/RoomLevel2.js";
-import { TestLevel } from "../../levels/testlevel.js";
+import { TestLevel } from "../../levels/TestLevel.js";
 import { TitleScreen } from "../../levels/TitleScreen.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { resources } from "../../Resources.js";

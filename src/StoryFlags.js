@@ -7,6 +7,10 @@ class StoryFlags {
         this.flags.set(flag, true);
     }
 
+    delete(flag){
+        this.flags.delete(flag);
+    }
+
     getRelevantScenario(scenarios=[]){
         return scenarios.find(scenario => {
             // Disqualify when any bypass flags are present

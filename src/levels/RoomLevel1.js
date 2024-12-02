@@ -1,6 +1,7 @@
 import { events } from "../Events.js";
 import { gridCells } from "../helpers/grid.js";
 import { Bed } from "../objects/Bed/Bed.js";
+import { Chest } from "../objects/Chest/Chest.js";
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
 import { GreenDoor } from "../objects/Door/GreenDoor.js";
 import { Exit } from "../objects/Exit/Exit.js";
@@ -39,7 +40,16 @@ export class RoomLevel1 extends Level{
         });
         this.addChild(door);
 
-        const fireplace = new Fireplace(gridCells(7),gridCells(8));
+        const door2 = new BrownDoor(gridCells(3),gridCells(7), { 
+            location: 'TestLevel',
+            heroPosition: new Vector2(gridCells(0),gridCells(0)),
+        });
+        this.addChild(door2);
+
+        const chest = new Chest(gridCells(6),gridCells(8),true);
+        this.addChild(chest);
+
+        const fireplace = new Fireplace(gridCells(7),gridCells(8),true);
         this.addChild(fireplace);
 
         const bed = new Bed(gridCells(18),gridCells(3));

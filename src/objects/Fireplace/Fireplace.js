@@ -6,22 +6,18 @@ import { Vector2 } from "../../Vector2.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { storyFlags } from "../../StoryFlags.js";
 
+
 export class Fireplace extends GameObject{
-    constructor(x,y){
+    constructor(x,y,active=false){
         super({
             position: new Vector2(x,y)
         })
 
-        const sprite = new Sprite({
-            resource: resources.images.fireplace_on,
-            frameSize: new Vector2(26,41),
-            position: new Vector2(-5,-30)
-        })
-        this.addChild(sprite)
-
-        // keeping track of states
-        this.isOn = true;
-        this.hasKey = true;
+        // "keeping track" of states, this shit so bad, hoooly
+        this.active = active;
+        this.isOn = Boolean;
+        this.hasKey = Boolean;
+        this.initialSpriteState();
 
         this.isSolid = true;
 
@@ -39,6 +35,41 @@ export class Fireplace extends GameObject{
         ]
     }
 
+    initialSpriteState(){
+        if(storyFlags.flags.has("FIREPLACE_OFF") || !this.active){
+            this.isOn = false;
+            this.hasKey = false;
+
+            const sprite = new Sprite({
+                resource: resources.images.fireplace_off,
+                frameSize: new Vector2(26,41),
+                position: new Vector2(-5,-30)
+            })
+            this.addChild(sprite);
+        }
+        else if(storyFlags.flags.has("FIREPLACE_OFF_KEY")){
+            this.isOn = false;
+            this.hasKey = true;    
+            const sprite = new Sprite({
+                resource: resources.images.fireplace_off_key,
+                frameSize: new Vector2(26,41),
+                position: new Vector2(-5,-30)
+            })
+            this.addChild(sprite);
+        }
+        else{
+            this.isOn = true;
+            this.hasKey = true;
+
+            const sprite = new Sprite({
+                resource: resources.images.fireplace_on,
+                frameSize: new Vector2(26,41),
+                position: new Vector2(-5,-30)
+            })
+            this.addChild(sprite);
+        }
+    }
+
     toggleFireplaceSprite(fireplace_obj){
         if(!this.isOn && !this.hasKey){
             return;
@@ -52,6 +83,7 @@ export class Fireplace extends GameObject{
                 position: new Vector2(-5,-30),
             })
             fireplace_obj.addChild(sprite);
+            storyFlags.add("FIREPLACE_OFF_KEY");
         }
         else if(this.hasKey){
             let first_sprite = fireplace_obj.children[0];
@@ -62,6 +94,8 @@ export class Fireplace extends GameObject{
                 position: new Vector2(-5,-30),
             })
             fireplace_obj.addChild(sprite);
+            storyFlags.delete("FIREPLACE_OFF_KEY");
+            storyFlags.add("FIREPLACE_OFF");
         }
     }
 

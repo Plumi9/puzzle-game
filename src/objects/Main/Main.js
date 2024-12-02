@@ -64,7 +64,8 @@ export class Main extends GameObject{
         // TODO: Change to HERO_REQUESTS_INSPECTION and sort
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
-            console.log(withObject.constructor.name);
+            //console.log(withObject.constructor.name);
+            console.log(storyFlags.flags);
 
             // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
