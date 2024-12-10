@@ -28,6 +28,11 @@ class Resources{
 
             room: "./sprites/room.png",
             room2: "./sprites/room2.png",
+            room_pink: "./sprites/room_pink.png",
+            room_grey: "./sprites/room_grey.png",
+            room_brown: "./sprites/room_brown.png",
+            room_purple: "./sprites/room_purple.png",
+            room_yellow: "./sprites/room_yellow.png",
 
             dungeonGround: "./sprites/dungeon.png",
 

@@ -14,6 +14,11 @@ import { Sprite } from "../../Sprite.js";
 import { storyFlags } from "../../StoryFlags.js";
 import { Vector2 } from "../../Vector2.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
+import { RoomLevel_pink } from "../../levels/RoomLevel_pink.js";
+import { RoomLevel_grey } from "../../levels/RoomLevel_grey.js";
+import { RoomLevel_brown } from "../../levels/RoomLevel_brown.js";
+import { RoomLevel_purple } from "../../levels/RoomLevel_purple.js";
+import { RoomLevel_yellow } from "../../levels/RoomLevel_yellow.js";
 
 export class BrownDoor extends GameObject{
     constructor(x,y,location={}){ // location needs to have location and heroPosition
@@ -41,33 +46,38 @@ export class BrownDoor extends GameObject{
 
     changeLocationBrownDoor(mainScene){
         switch(this.location){
-            case 'CaveLevel1':
-                events.emit("CHANGE_LEVEL", new CaveLevel1({
-                    heroPosition: this.heroPosition,
-                }));
-                break;
-            case 'OutdoorLevel1':
-                events.emit("CHANGE_LEVEL", new OutdoorLevel1({
-                    heroPosition: this.heroPosition,
-                }));
-                break;
             case 'RoomLevel1':
                 events.emit("CHANGE_LEVEL", new RoomLevel1({
                     heroPosition: this.heroPosition,
                 }));
                 break;
-            case 'RoomLevel2':
-                    events.emit("CHANGE_LEVEL", new RoomLevel2({
-                        heroPosition: this.heroPosition,
-                    }));
-                    break;
-            case 'TestLevel':
-                events.emit("CHANGE_LEVEL", new TestLevel({
+            case 'RoomLevel_pink':
+                events.emit("CHANGE_LEVEL", new RoomLevel_pink({
                     heroPosition: this.heroPosition,
                 }));
                 break;
-            case 'Void': 
-                events.emit("CHANGE_LEVEL", new Void({
+            case 'RoomLevel_grey':
+                events.emit("CHANGE_LEVEL", new RoomLevel_grey({
+                    heroPosition: this.heroPosition,
+                }));
+                break;
+            case 'RoomLevel_brown':
+                events.emit("CHANGE_LEVEL", new RoomLevel_brown({
+                    heroPosition: this.heroPosition,
+                }));
+                break;
+            case 'RoomLevel_purple':
+                events.emit("CHANGE_LEVEL", new RoomLevel_purple({
+                    heroPosition: this.heroPosition,
+                }));
+                break;
+            case 'RoomLevel_yellow':
+                events.emit("CHANGE_LEVEL", new RoomLevel_yellow({
+                    heroPosition: this.heroPosition,
+                }));
+                break;
+            case 'RoomLevel2':
+                events.emit("CHANGE_LEVEL", new RoomLevel2({
                     heroPosition: this.heroPosition,
                 }));
                 break;

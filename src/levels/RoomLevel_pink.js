@@ -17,7 +17,7 @@ import { Vector2 } from "../Vector2.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(3), gridCells(9));
 
-export class RoomLevel1 extends Level{
+export class RoomLevel_pink extends Level{
     constructor(params={}){
         super({});
 
@@ -26,7 +26,7 @@ export class RoomLevel1 extends Level{
             frameSize: new Vector2(320, 180),
         })
         const roomSprite = new Sprite({
-            resource: resources.images.room,
+            resource: resources.images.room_pink,
             frameSize: new Vector2(384, 320),
         })
         this.addChild(roomSprite);
@@ -35,21 +35,9 @@ export class RoomLevel1 extends Level{
 
         const door = new BrownDoor(gridCells(3),gridCells(8), { 
             location: 'TownLevel1',
-            heroPosition: new Vector2(gridCells(22),gridCells(14)),
+            heroPosition: new Vector2(gridCells(10),gridCells(14)),
         });
         this.addChild(door);
-
-        const chest = new Chest(gridCells(7),gridCells(9),true);
-        this.addChild(chest);
-
-        const pchest = new Chest(gridCells(7),gridCells(10));
-        this.addChild(pchest);
-
-        const fireplace = new Fireplace(gridCells(8),gridCells(9),true);
-        this.addChild(fireplace);
-
-        const bed = new Bed(gridCells(20),gridCells(4));
-        this.addChild(bed);
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);

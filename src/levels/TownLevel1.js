@@ -37,7 +37,7 @@ import { Key } from "../objects/Key/Key.js";
 import { Fireplace } from "../objects/Fireplace/Fireplace.js";
 import { Bed } from "../objects/Bed/Bed.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(22), gridCells(14));
 
 export class TownLevel1 extends Level{
     constructor(params={}){
@@ -56,41 +56,41 @@ export class TownLevel1 extends Level{
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const brownDoor_RoomLevel1 = new BrownDoor(gridCells(10), gridCells(13), {
+        const brownDoor_RoomLevel1 = new BrownDoor(gridCells(22), gridCells(13), {
             location: "RoomLevel1",
             heroPosition: new Vector2(gridCells(3),gridCells(9)),
         });
         this.addChild(brownDoor_RoomLevel1);
 
-        const brownDoor_RoomLevel1_2 = new BrownDoor(gridCells(3), gridCells(39), {
-            location: "RoomLevel1",
-            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        const brownDoor_RoomLevel_pink = new BrownDoor(gridCells(10), gridCells(13), {
+            location: "RoomLevel_pink",
+            heroPosition: new Vector2(gridCells(3),gridCells(9)),
         });
-        this.addChild(brownDoor_RoomLevel1_2);
+        this.addChild(brownDoor_RoomLevel_pink);
 
-        const brownDoor_RoomLevel1_3 = new BrownDoor(gridCells(16), gridCells(39), {
-            location: "RoomLevel1",
-            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        const brownDoor_RoomLevel_grey = new BrownDoor(gridCells(12), gridCells(3), {
+            location: "RoomLevel_grey",
+            heroPosition: new Vector2(gridCells(3),gridCells(9)),
         });
-        this.addChild(brownDoor_RoomLevel1_3);
+        this.addChild(brownDoor_RoomLevel_grey);
 
-        const brownDoor_RoomLevel1_4 = new BrownDoor(gridCells(12), gridCells(3), {
-            location: "RoomLevel1",
-            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        const brownDoor_RoomLevel_brown = new BrownDoor(gridCells(26), gridCells(3), {
+            location: "RoomLevel_brown",
+            heroPosition: new Vector2(gridCells(3),gridCells(9)),
         });
-        this.addChild(brownDoor_RoomLevel1_4);
+        this.addChild(brownDoor_RoomLevel_brown);
 
-        const brownDoor_RoomLevel1_5 = new BrownDoor(gridCells(26), gridCells(3), {
-            location: "RoomLevel1",
-            heroPosition: new Vector2(gridCells(2),gridCells(8)),
+        const brownDoor_RoomLevel_purple = new BrownDoor(gridCells(3), gridCells(39), {
+            location: "RoomLevel_purple",
+            heroPosition: new Vector2(gridCells(3),gridCells(3)),
         });
-        this.addChild(brownDoor_RoomLevel1_5);
+        this.addChild(brownDoor_RoomLevel_purple);
 
-        const brownDoor_RoomLevel2 = new BrownDoor(gridCells(22), gridCells(13), {
-            location: "RoomLevel2",
-            heroPosition: new Vector2(gridCells(2),gridCells(2)),
+        const brownDoor_RoomLevel_yellow = new BrownDoor(gridCells(16), gridCells(39), {
+            location: "RoomLevel_yellow",
+            heroPosition: new Vector2(gridCells(3),gridCells(3)),
         });
-        this.addChild(brownDoor_RoomLevel2);
+        this.addChild(brownDoor_RoomLevel_yellow);
 
         const brownDoor_DungeonLevel1 = new BrownDoor(gridCells(41), gridCells(11), {
             location: "DungeonLevel1",
