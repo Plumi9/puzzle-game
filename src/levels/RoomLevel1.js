@@ -15,7 +15,7 @@ import { Sprite } from "../Sprite.js";
 import { TALKED_TO_A, TALKED_TO_B } from "../StoryFlags.js";
 import { Vector2 } from "../Vector2.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(2), gridCells(8));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(3), gridCells(9));
 
 export class RoomLevel1 extends Level{
     constructor(params={}){
@@ -33,22 +33,22 @@ export class RoomLevel1 extends Level{
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const door = new BrownDoor(gridCells(2),gridCells(7), { 
+        const door = new BrownDoor(gridCells(3),gridCells(8), { 
             location: 'TownLevel1',
             heroPosition: new Vector2(gridCells(10),gridCells(14)),
         });
         this.addChild(door);
 
-        const chest = new Chest(gridCells(6),gridCells(8),true);
+        const chest = new Chest(gridCells(7),gridCells(9),true);
         this.addChild(chest);
 
-        const pchest = new Chest(gridCells(6),gridCells(9));
+        const pchest = new Chest(gridCells(7),gridCells(10));
         this.addChild(pchest);
 
-        const fireplace = new Fireplace(gridCells(7),gridCells(8),true);
+        const fireplace = new Fireplace(gridCells(8),gridCells(9),true);
         this.addChild(fireplace);
 
-        const bed = new Bed(gridCells(18),gridCells(3));
+        const bed = new Bed(gridCells(20),gridCells(4));
         this.addChild(bed);
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
