@@ -84,7 +84,7 @@ export class Hero extends GameObject{
     }
 
     step(delta, root){
-        
+        // console.log(this.position)
         // Check for input
         /** @type {Input} input */
         const input = root.input;

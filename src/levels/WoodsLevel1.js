@@ -11,7 +11,7 @@ import { Vector2 } from "../Vector2.js";
 import { Mound } from "../objects/Mound/Mound.js";
 import { WoodsEntrance } from "../objects/Door/WoodsEntrance.js";
 
-const DEFAULT_HERO_POSITION = new Vector2(gridCells(6), gridCells(5));
+const DEFAULT_HERO_POSITION = new Vector2(gridCells(19), gridCells(5));
 
 export class WoodsLevel1 extends Level{
     constructor(params={}){
@@ -22,19 +22,20 @@ export class WoodsLevel1 extends Level{
         })
         const groundSprite = new Sprite({
             resource: resources.images.woodsGround,
-            frameSize: new Vector2(330, 250),
+            frameSize: new Vector2(560, 524),
+            position: new Vector2(6,4)
         })
         this.addChild(groundSprite);
 
         this.heroStartPosition = params.heroPosition ?? DEFAULT_HERO_POSITION;
 
-        const woodsEntrance = new WoodsEntrance(gridCells(16),gridCells(3));
+        const woodsEntrance = new WoodsEntrance(gridCells(19),gridCells(4));
         this.addChild(woodsEntrance);
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 
-        const mound = new Mound(gridCells(2),gridCells(9));
+        const mound = new Mound(gridCells(27),gridCells(24));
         this.addChild(mound);
 
         // Collision

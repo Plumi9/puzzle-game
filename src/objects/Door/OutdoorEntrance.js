@@ -32,7 +32,7 @@ export class OutdoorEntrance extends GameObject{
 
     changeLocationOutdoorEntrance(){
         events.emit("CHANGE_LEVEL", new WoodsLevel1({
-            heroPosition: new Vector2(gridCells(16),gridCells(4))
+            heroPosition: new Vector2(gridCells(19),gridCells(5))
         }));
     }
 }

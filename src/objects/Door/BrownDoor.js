@@ -7,7 +7,7 @@ import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { RoomLevel1 } from "../../levels/RoomLevel1.js";
 import { RoomLevel2 } from "../../levels/RoomLevel2.js";
 import { TestLevel } from "../../levels/TestLevel.js";
-import { TitleScreen } from "../../levels/TitleScreen.js";
+import { Void } from "../../levels/Void.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
 import { resources } from "../../Resources.js";
 import { Sprite } from "../../Sprite.js";
@@ -66,8 +66,8 @@ export class BrownDoor extends GameObject{
                     heroPosition: this.heroPosition,
                 }));
                 break;
-            case 'TitleScreen': 
-                events.emit("CHANGE_LEVEL", new TitleScreen({
+            case 'Void': 
+                events.emit("CHANGE_LEVEL", new Void({
                     heroPosition: this.heroPosition,
                 }));
                 break;

@@ -14,7 +14,7 @@ export class WoodsEntrance extends GameObject{
         const sprite = new Sprite({
             resource: resources.images.woodsEntrance,
             frameSize: new Vector2(32, 48),
-            position: new Vector2(-8,-16)
+            position: new Vector2(-10,-18)
         })
         this.addChild(sprite)
 

@@ -53,7 +53,7 @@ export class Chest extends GameObject{
             }
         }
         else{
-            if(storyFlags.flags.has("GIRL_DIED")){
+            if(storyFlags.flags.has("END_DAY_1")){
                 const sprite = new Sprite({
                     resource: resources.images.openPurpleChest,
                     position: new Vector2(1,-2),
@@ -94,64 +94,32 @@ export class Chest extends GameObject{
                     storyFlags.add(this.content[0].addsFlag);
                 }
     
-                // Show the textbox
-                const textbox = new SpriteTextString({
-                    string: this.content[0].string,
-                    portraitFrame: 0,
-                });
-                mainScene.addChild(textbox);
-    
-                events.emit("START_TEXT_BOX");
-    
-                // Unsubscribe from this textbox after its destroyed
-                const endingSub = events.on("END_TEXT_BOX", this, () => {
-                    textbox.destroy();
-                    events.off(endingSub);
-                })
+                this.createTextBox(mainScene, 0);
                 this.openChest(chestInstance)
             }
             else{
-                // Adds story Flag
-                if(this.content.addsFlag){
-                    storyFlags.add(this.content[1].addsFlag);
-                }
-    
-                // Show the textbox
-                const textbox = new SpriteTextString({
-                    string: this.content[1].string,
-                    portraitFrame: 0,
-                });
-                mainScene.addChild(textbox);
-    
-                events.emit("START_TEXT_BOX");
-    
-                // Unsubscribe from this textbox after its destroyed
-                const endingSub = events.on("END_TEXT_BOX", this, () => {
-                    textbox.destroy();
-                    events.off(endingSub);
-                })
+                this.createTextBox(mainScene, 1);
             }
         }
         else{
-            // Show the textbox
-            const textbox = new SpriteTextString({
-                string: this.content[2].string,
-                portraitFrame: 0,
-            });
-            mainScene.addChild(textbox);
-
-            events.emit("START_TEXT_BOX");
-
-            // Unsubscribe from this textbox after its destroyed
-            const endingSub = events.on("END_TEXT_BOX", this, () => {
-                textbox.destroy();
-                events.off(endingSub);
-            })
+            this.createTextBox(mainScene, 2);
         }
     }
 
-    // TODO
-    createTextBox(content){
-        return content;
+    createTextBox(mainScene, num){
+        // Show the textbox
+        const textbox = new SpriteTextString({
+            string: this.content[num].string,
+            portraitFrame: 0,
+        });
+        mainScene.addChild(textbox);
+
+        events.emit("START_TEXT_BOX");
+
+        // Unsubscribe from this textbox after its destroyed
+        const endingSub = events.on("END_TEXT_BOX", this, () => {
+            textbox.destroy();
+            events.off(endingSub);
+        })
     }
 }

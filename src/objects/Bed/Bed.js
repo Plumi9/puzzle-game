@@ -5,6 +5,7 @@ import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { storyFlags } from "../../StoryFlags.js";
+import { TownLevel_night } from "../../levels/TownLevel_night.js";
 
 export class Bed extends GameObject{
     constructor(x,y){
@@ -47,6 +48,7 @@ export class Bed extends GameObject{
             events.off(endingSub);
 
             //tp to next "level"
+            this.changeLocationBed();
         })
     }
 
@@ -65,5 +67,11 @@ export class Bed extends GameObject{
             textbox.destroy();
             events.off(endingSub);
         })
+    }
+
+    changeLocationBed(){
+        events.emit("CHANGE_LEVEL", new TownLevel_night({
+            heroPosition: this.heroPosition,
+        }));
     }
 }

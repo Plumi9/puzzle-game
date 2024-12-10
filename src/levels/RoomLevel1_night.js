@@ -17,7 +17,7 @@ import { Vector2 } from "../Vector2.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(2), gridCells(8));
 
-export class RoomLevel1 extends Level{
+export class RoomLevel1_night extends Level{
     constructor(params={}){
         super({});
 
@@ -47,9 +47,6 @@ export class RoomLevel1 extends Level{
 
         const fireplace = new Fireplace(gridCells(7),gridCells(8),true);
         this.addChild(fireplace);
-
-        const bed = new Bed(gridCells(18),gridCells(3));
-        this.addChild(bed);
 
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);

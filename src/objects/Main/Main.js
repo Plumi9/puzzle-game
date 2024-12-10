@@ -10,7 +10,7 @@ import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { OutdoorLevel1 } from "../../levels/OutdoorLevel1.js";
 import { CaveLevel1 } from "../../levels/CaveLevel1.js";
 import { TownLevel1 } from "../../levels/TownLevel1.js";
-import { TownLevel2 } from "../../levels/TownLevel2.js";
+import { TownLevel_night } from "../../levels/TownLevel_night.js";
 import { RoomLevel1 } from "../../levels/RoomLevel1.js";
 import { Scrollzoom } from "../Scroll/ScrollZoom.js";
 import { Vector2 } from "../../Vector2.js";
@@ -64,8 +64,7 @@ export class Main extends GameObject{
         // TODO: Change to HERO_REQUESTS_INSPECTION and sort
         // Launch textbox/teleport handler
         events.on("HERO_REQUESTS_ACTION",this, (withObject) => {
-            //console.log(withObject.constructor.name);
-            console.log(storyFlags.flags);
+            console.log(withObject.constructor.name);
 
             // TEXTBOX HANDLER
             if(typeof withObject.getContent === "function"){
@@ -93,7 +92,9 @@ export class Main extends GameObject{
                     events.off(endingSub);
                 })
             }
-
+            if(typeof withObject.getDialog === "function"){
+                withObject.getDialog(this);
+            }
             // Door handler
             // TODO: CHANGE TO SWITCH STATEMENT
             if(typeof withObject.changeLocationBrownDoor === "function"){
@@ -190,7 +191,7 @@ export class Main extends GameObject{
         else if (newLevelInstance instanceof TownLevel1) {
             this.musicManager.playTrack(new Audio(resources.toLoad.happyMusic));
         }
-        else if (newLevelInstance instanceof TownLevel2) {
+        else if (newLevelInstance instanceof TownLevel_night) {
             this.musicManager.playTrack(new Audio(resources.toLoad.uneasyMusic));
         }
         else if (newLevelInstance instanceof RoomLevel1) {
@@ -234,20 +235,20 @@ export class Main extends GameObject{
         })
 
         // limited view cone
-        // if(this.level instanceof TownLevel2){
-            // ctx.beginPath();
-            // ctx.moveTo(0,0);
-            // ctx.lineTo(320,0);
-            // ctx.lineTo(320,180);
-            // ctx.lineTo(0,180);
-            // ctx.lineTo(0,0);
-            // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
-            // ctx.fillStyle = "rgb(0 0 0 / 100%)"; // full black
-            // ctx.fill();
+        // if(this.level instanceof TownLevel_night){
+        //     ctx.beginPath();
+        //     ctx.moveTo(0,0);
+        //     ctx.lineTo(320,0);
+        //     ctx.lineTo(320,180);
+        //     ctx.lineTo(0,180);
+        //     ctx.lineTo(0,0);
+        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Outer circle
+        //     ctx.fillStyle = "rgb(0 0 0 / 100%)"; // full black
+        //     ctx.fill();
     
-            // ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Inner circle
-            // ctx.fillStyle = "rgb(0 0 0 / 50%)"; // Opacity in the middle
-            // ctx.fill();
+        //     ctx.arc(160, 85, 50, 0, Math.PI * 2, true); // Inner circle
+        //     ctx.fillStyle = "rgb(0 0 0 / 50%)"; // Opacity in the middle
+        //     ctx.fill();
         // }
     }
 }

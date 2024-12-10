@@ -16,8 +16,8 @@ class Resources{
 
             // Maps
             black: "./sprites/black.png",
-            titlescreen: "./sprites/titlescreen.png",
-            
+            void: "./sprites/void.png",
+
             sky: "./sprites/sky.png",
             ground: "./sprites/ground.png",
 
@@ -70,6 +70,7 @@ class Resources{
 
             // NPCs
             knight: "./sprites/knight-sheet-1.png",
+            reaper: "./sprites/reaper.png",
 
             npc1: "./sprites/characters/char_01.png",
             npc2: "./sprites/characters/char_02.png",

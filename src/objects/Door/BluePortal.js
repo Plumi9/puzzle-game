@@ -4,7 +4,7 @@ import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { events } from "../../Events.js";
 import { gridCells } from "../../helpers/grid.js";
-import { TownLevel2 } from "../../levels/TownLevel2.js";
+import { TownLevel_night } from "../../levels/TownLevel_night.js";
 
 export class BluePortal extends GameObject{
     constructor(x,y,location={}){
@@ -29,7 +29,7 @@ export class BluePortal extends GameObject{
     }
 
     changeLocationPortal(){
-        events.emit("CHANGE_LEVEL", new TownLevel2({
+        events.emit("CHANGE_LEVEL", new TownLevel_night({
             heroPosition: this.heroPosition,
         }));
     }

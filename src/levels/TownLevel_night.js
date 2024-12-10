@@ -13,8 +13,6 @@ import { TALKED_TO_A, TALKED_TO_B, TALKED_TO_GIRL, TALKED_TO_HEALER, TALKED_TO_H
 import { Vector2 } from "../Vector2.js";
 import { OutdoorLevel1 } from "./OutdoorLevel1.js";
 import { OutdoorEntrance } from "../objects/Door/OutdoorEntrance.js";
-import { BluePortal } from "../objects/Door/BluePortal.js";
-import { TownLevel_night } from "./TownLevel_night.js";
 import { Npc1 } from "../objects/NPC/Npc1.js";
 import { Npc10 } from "../objects/NPC/Npc10.js";
 import { Npc11 } from "../objects/NPC/Npc11.js";
@@ -39,12 +37,12 @@ import { Bed } from "../objects/Bed/Bed.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(0));
 
-export class TownLevel1 extends Level{
+export class TownLevel_night extends Level{
     constructor(params={}){
         super({});
 
         this.background = new Sprite({
-            resource: resources.images.sky,
+            resource: resources.images.black,
             frameSize: new Vector2(320, 180),
         })
         const townGroundSprite = new Sprite({
