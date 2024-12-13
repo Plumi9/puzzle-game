@@ -39,6 +39,9 @@ export class RoomLevel_brown extends Level{
         });
         this.addChild(door);
 
+        const fireplace = new Fireplace(gridCells(8), gridCells(9));
+        this.addChild(fireplace);
+
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 

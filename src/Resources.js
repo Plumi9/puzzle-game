@@ -36,6 +36,8 @@ class Resources{
 
             dungeonGround: "./sprites/dungeon.png",
 
+            catacombsGround: "./sprites/catacombs.png",
+
             woodsGround: "./sprites/woods.png",
 
             // Items

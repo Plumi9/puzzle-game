@@ -40,7 +40,7 @@ export class CaveLevel1 extends Level{
         const rod = new Rod(gridCells(9), gridCells(6));
         this.addChild(rod); 
 
-        const chest = new Chest(gridCells(8),gridCells(1));
+        const chest = new Chest(gridCells(8),gridCells(1), true);
         this.addChild(chest);
 
         const npc1 = new Npc(gridCells(7), gridCells(5), {

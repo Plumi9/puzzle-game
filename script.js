@@ -12,6 +12,7 @@ import { TownLevel_night } from "./src/levels/TownLevel_night.js";
 import { DungeonLevel1 } from "./src/levels/DungeonLevel1.js";
 import { RoomLevel2 } from "./src/levels/RoomLevel2.js";
 import { WoodsLevel1 } from "./src/levels/WoodsLevel1.js";
+import { CatacombsLevel1 } from "./src/levels/CatacombsLevel1.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -25,12 +26,13 @@ const mainScene = new Main({
 //mainScene.setLevel(new DungeonLevel1());
 //mainScene.setLevel(new RoomLevel1());
 //mainScene.setLevel(new RoomLevel2());
-mainScene.setLevel(new TownLevel1());
+//mainScene.setLevel(new TownLevel1());
 //mainScene.setLevel(new TownLevel_night());
-//mainScene.setLevel(new TestLevel());
+mainScene.setLevel(new TestLevel());
 //mainScene.setLevel(new Void());
 //mainScene.setLevel(new OutdoorLevel1());
 //mainScene.setLevel(new CaveLevel1());
+//mainScene.setLevel(new CatacombsLevel1());
 
 // Establish update and draw loop
 const update = (delta) => {
