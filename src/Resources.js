@@ -76,6 +76,8 @@ class Resources{
             book: "./sprites/book.png",
 
             // NPCs
+            nerd: "./sprites/nerd.png",
+
             knight: "./sprites/knight-sheet-1.png",
             reaper: "./sprites/reaper.png",
 

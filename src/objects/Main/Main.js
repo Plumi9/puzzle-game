@@ -92,6 +92,8 @@ export class Main extends GameObject{
                     events.off(endingSub);
                 })
             }
+            
+            // literally just for reaper
             if(typeof withObject.getDialog === "function"){
                 withObject.getDialog(this);
             }
@@ -146,6 +148,7 @@ export class Main extends GameObject{
                     withObject.interactNecklace(this);
                     break;
                 case "Scroll":
+                    withObject.interactScroll(this);
                     if (!this.isZoomedIn) {
                         this.isZoomedIn = true;
                         const scrollZoom = new Scrollzoom();

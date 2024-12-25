@@ -72,6 +72,7 @@ import { TALKED_TO_A, TALKED_TO_B, TALKED_TO_GIRL, TALKED_TO_HEALER, TALKED_TO_H
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
 import { Crowbar } from "../objects/Crowbar/Crowbar.js";
 import { PurpleChest } from "../objects/Chest/PurpleChest.js";
+import { Enemy } from "../objects/Enemy/Enemy.js";
 
 const DEFAULT_HERO_POSITION = new Vector2(gridCells(0), gridCells(7));
 
@@ -88,6 +89,9 @@ export class TestLevel extends Level{
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
 
+        // const enemy = new Enemy(gridCells(-8), gridCells(7));
+        // this.addChild(enemy);
+
         const brownDoor_DungeonLevel1 = new BrownDoor(gridCells(0), gridCells(6), {
             location: "DungeonLevel1",
             heroPosition: new Vector2(gridCells(2),gridCells(3)),
@@ -97,7 +101,10 @@ export class TestLevel extends Level{
         const chest = new Chest(gridCells(0),gridCells(-1));
         this.addChild(chest);
         
-        const purpleChest = new PurpleChest(gridCells(1), gridCells(-1));
+        const chest2 = new Chest(gridCells(1),gridCells(-1),true);
+        this.addChild(chest2);
+
+        const purpleChest = new PurpleChest(gridCells(3), gridCells(-1));
         this.addChild(purpleChest);
 
         const emptyPotion = new EmptyPotion(gridCells(-1),gridCells(-1));
@@ -142,9 +149,6 @@ export class TestLevel extends Level{
         const bluePortal = new BluePortal(gridCells(5), gridCells(-1));
         this.addChild(bluePortal);
 
-        // const npc_chosen1 = new Npc1(gridCells(1), gridCells(8));
-        // this.addChild(npc_chosen1);
-
         const girl = new Npc1(gridCells(1), gridCells(8),{
             content: [
                 {
@@ -169,12 +173,35 @@ export class TestLevel extends Level{
         });
         this.addChild(girl);
 
+        const wizard = new Npc20(gridCells(4), gridCells(8), {
+            content: [
+                {
+                    string: "Hmm, a newcomer. I'm Alden, the wizard. If you seek knowledge, you may ask me - or not. Most prefer the simplicity of life over the complexities of magic.",
+                    requires: [],
+                    bypass: [TALKED_TO_WIZARD],
+                    addsFlag: TALKED_TO_WIZARD,
+                },
+                {
+                    string: "Be cautious, curiosity can lead you down dark paths. Some knowledge is best left undiscovered.",
+                    requires: [TALKED_TO_WIZARD],
+                    bypass: ["READ_SCROLL"],
+                    addsFlag: "TALKED_TO_WIZARD2",
+                },
+                {
+                    string: "YOU READ THE SCROLL, CONGRATS YOU ILLITERATE PIECE OF WORTHLESS SHIT BALLS STAIN!",
+                    requires: ["READ_SCROLL"],
+                    bypass: [],
+                    addsFlag: [],
+                },
+            ],
+            portraitFrame: 6,
+        });
+        this.addChild(wizard);
+
         const npc_chosen2 = new Npc10(gridCells(2), gridCells(8));
         this.addChild(npc_chosen2);
         const npc_chosen3 = new Npc11(gridCells(3), gridCells(8));
         this.addChild(npc_chosen3);
-        const npc_chosen4 = new Npc20(gridCells(4), gridCells(8));
-        this.addChild(npc_chosen4);
         const npc_chosen5 = new Npc26(gridCells(5), gridCells(8));
         this.addChild(npc_chosen5);
         const npc_chosen6 = new Npc19(gridCells(6), gridCells(8));

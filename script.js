@@ -4,7 +4,6 @@ import { Main } from "./src/objects/Main/Main.js";
 import { CaveLevel1 } from "./src/levels/CaveLevel1.js";
 import { OutdoorLevel1 } from "./src/levels/OutdoorLevel1.js";
 import { Void } from "./src/levels/Void.js";
-import { TestLevel } from "./src/levels/TestLevel.js";
 import { TownLevel1 } from "./src/levels/TownLevel1.js";
 import { RoomLevel1 } from "./src/levels/RoomLevel1.js";
 import { gridCells } from "./src/helpers/grid.js";
@@ -13,6 +12,7 @@ import { DungeonLevel1 } from "./src/levels/DungeonLevel1.js";
 import { RoomLevel2 } from "./src/levels/RoomLevel2.js";
 import { WoodsLevel1 } from "./src/levels/WoodsLevel1.js";
 import { CatacombsLevel1 } from "./src/levels/CatacombsLevel1.js";
+import { TestLevel } from "./src/levels/testlevel.js";
 
 // Grabbing the canvas to draw to
 const canvas = document.querySelector("#game-canvas");
@@ -26,9 +26,9 @@ const mainScene = new Main({
 //mainScene.setLevel(new DungeonLevel1());
 //mainScene.setLevel(new RoomLevel1());
 //mainScene.setLevel(new RoomLevel2());
-//mainScene.setLevel(new TownLevel1());
+mainScene.setLevel(new TownLevel1());
 //mainScene.setLevel(new TownLevel_night());
-mainScene.setLevel(new TestLevel());
+//mainScene.setLevel(new TestLevel());
 //mainScene.setLevel(new Void());
 //mainScene.setLevel(new OutdoorLevel1());
 //mainScene.setLevel(new CaveLevel1());

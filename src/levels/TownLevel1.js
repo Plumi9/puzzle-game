@@ -80,13 +80,13 @@ export class TownLevel1 extends Level{
         });
         this.addChild(brownDoor_RoomLevel_brown);
 
-        const brownDoor_RoomLevel_purple = new BrownDoor(gridCells(3), gridCells(39), {
+        const brownDoor_RoomLevel_purple = new BrownDoor(gridCells(5), gridCells(40), {
             location: "RoomLevel_purple",
             heroPosition: new Vector2(gridCells(3),gridCells(3)),
         });
         this.addChild(brownDoor_RoomLevel_purple);
 
-        const brownDoor_RoomLevel_yellow = new BrownDoor(gridCells(16), gridCells(39), {
+        const brownDoor_RoomLevel_yellow = new BrownDoor(gridCells(18), gridCells(40), {
             location: "RoomLevel_yellow",
             heroPosition: new Vector2(gridCells(3),gridCells(3)),
         });
@@ -129,7 +129,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 2,
         });
         this.addChild(girl);
-        const knight = new Npc10(gridCells(17), gridCells(39), {
+        const knight = new Npc10(gridCells(19), gridCells(40), {
             content: [
                 {
                     string: "Ah, a newcomer! I'm Alaric, defender of Midvale. Proud to meet you. I am a little busy - there are rumors of trouble in the woods.",
@@ -189,7 +189,7 @@ export class TownLevel1 extends Level{
             portraitFrame: 5,
         });
         this.addChild(hunter);
-        const wizard = new Npc20(gridCells(4), gridCells(39), {
+        const wizard = new Npc20(gridCells(6), gridCells(40), {
             content: [
                 {
                     string: "Hmm, a newcomer. I'm Alden, the wizard. If you seek knowledge, you may ask me - or not. Most prefer the simplicity of life over the complexities of magic.",
@@ -207,31 +207,12 @@ export class TownLevel1 extends Level{
             portraitFrame: 6,
         });
         this.addChild(wizard);
-        const ninja = new Npc26(gridCells(5), gridCells(1), {
-            content: [
-                {
-                    string: "...  'nods'",
-                    requires: [],
-                    bypass: [TALKED_TO_NINJA],
-                    addsFlag: TALKED_TO_NINJA,
-                },
-                {
-                    string: "'whispers'   The wind carries secrets, but they're not all meant to be heard.",
-                    requires: [TALKED_TO_NINJA],
-                    bypass: [],
-                    addsFlag: "TALKED_TO_NINJA2",
-                },
-            ],
-            portraitFrame: 7,
-        });
-        this.addChild(ninja);
 
-        // Always add hero last, buggy layering if not, weird, maybe not!
+        // Always add hero last, buggy layering if not, weird, maybe not! LIE!
         const hero = new Hero(this.heroStartPosition.x, this.heroStartPosition.y);
         this.addChild(hero);
-
     }
-    
+
     ready(){
         // Staircase to OutdoorLevel
         events.on("HERO_EXITS", this, () => {
