@@ -2,6 +2,7 @@ import { events } from "../Events.js";
 import { gridCells } from "../helpers/grid.js";
 import { Bed } from "../objects/Bed/Bed.js";
 import { Chest } from "../objects/Chest/Chest.js";
+import { PurpleChest } from "../objects/Chest/PurpleChest.js";
 import { BrownDoor } from "../objects/Door/BrownDoor.js";
 import { GreenDoor } from "../objects/Door/GreenDoor.js";
 import { Exit } from "../objects/Exit/Exit.js";
@@ -41,6 +42,12 @@ export class RoomLevel1 extends Level{
 
         const fireplace = new Fireplace(gridCells(8), gridCells(9));
         this.addChild(fireplace);
+        
+        const chest = new Chest(gridCells(7), gridCells(8));
+        this.addChild(chest);
+
+        const purpleChest = new PurpleChest(gridCells(7), gridCells(10));
+        this.addChild(purpleChest);
 
         const bed = new Bed(gridCells(20),gridCells(4));
         this.addChild(bed);

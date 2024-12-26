@@ -39,9 +39,6 @@ export class RoomLevel_pink extends Level{
         });
         this.addChild(door);
 
-        const pchest = new Chest(gridCells(7),gridCells(10));
-        this.addChild(pchest);
-
         const fireplace = new Fireplace(gridCells(8),gridCells(9),true);
         this.addChild(fireplace);
 

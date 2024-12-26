@@ -5,7 +5,8 @@ import { Sprite } from "../../Sprite.js";
 import { Vector2 } from "../../Vector2.js";
 import { SpriteTextString } from "../SpriteTextString/SpriteTextString.js";
 import { storyFlags } from "../../StoryFlags.js";
-import { TownLevel_night } from "../../levels/TownLevel_night.js";
+import { RoomLevel1 } from "../../levels/RoomLevel1.js";
+import { gridCells } from "../../helpers/grid.js";
 
 export class Bed extends GameObject{
     constructor(x,y){
@@ -23,12 +24,12 @@ export class Bed extends GameObject{
 
         this.content = {
                 string: "I feel sleepy.",
-                addsFlag: "END_DAY_1",
+                addsFlag: "END_ACT_1",
             };
     }
 
     interactBed(mainScene){
-        // Adds the story Flag: "END_DAY_1"
+        // Adds the story Flag: "END_ACT_1"
         if(this.content.addsFlag){
             storyFlags.add(this.content.addsFlag);
         }
@@ -70,8 +71,8 @@ export class Bed extends GameObject{
     }
 
     changeLocationBed(){
-        events.emit("CHANGE_LEVEL", new TownLevel_night({
-            heroPosition: this.heroPosition,
+        events.emit("CHANGE_LEVEL", new RoomLevel1({
+            heroPosition: new Vector2(gridCells(20),gridCells(5))
         }));
     }
 }
