@@ -1,0 +1,56 @@
+Story (WIP):
+who do i want the murderer to be? prolly healer.
+
+titlescreen:
+talk to reaper
+
+town, rooms, cave, forest:
+book about poisons findable in someones house as red herring?
+along with pouch full of medicine/poison
+ranger who usually has dungeon mentions that the key has been missing since today
+scroll in magicians place talks about ritual?
+-> add flag after reading scroll and then come back to magician?
+
+go to bed
+titlescreen:
+talk to reaper again
+
+town, rooms, cave, forest, dungeon at night:
+girl died
+bloody sword, empty vial, and broken crowbar, also her now empty open chest in room
+paper hidden somewhere maybe? on her corpse/in her hand -> shows other location to dig for actual clue / shows location of chest in forest she hid the ring in, need crowbar/key to open
+
+chest in her room was broken open, only "unimportant" inside
+-> maybe there used to be ring and necklace in there, necklace stolen, ring hidden by girl elsewhere
+get into dungeon, its open now, get shovel, find smth else maybe
+4
+Why 2 chests, what is cave and forest for?
+
+... more to do ...
+
+After choosing who to choose as the killer, it sends you to the titlescreen again. Fire! Cinema!
+
+END?
+
+story from girl POV:
+found necklace and ring somewhere together with healer
+read about danger in combining necklace and ring, !think about something
+healer wanted to have both and use them -> girl refused, saying its too dangerous
+then hid necklace and ring in her chest and locked it
+threatened by healer
+then hid the ring in a separate chest
+stole dungeon key to get shovel
+buried chest in forest, hid the key to chest in her fireplace
+wrote cryptic hint in paper, to lead to key in fireplace
+broken crowbar next to her along with red herrings
+
+-----------------------------------------------------------------------------------
+
+Progression:
+titlescreen -> townlevel1 (-> Cave, Woods, Dungeon, Rooms) -> titlescreen (night) (maybe?) -> townlevel1_night (-> Cave, Woods, Dungeon, Rooms Nightversion) -> END
+
+  GreenDoor -> BrownDoor, Exit,                        Bed ->		GreenDoor	 -> BrownDoor, Exit						?  -> END            
+
+
+
+                             

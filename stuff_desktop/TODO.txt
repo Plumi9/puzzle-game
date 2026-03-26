@@ -1,0 +1,36 @@
+ADD ALL INSPECTIONS AND INTERACTIONS FOR EVERY OBJECT -> JESUS CHRIST WHY AM I DOING THIS??? NO!
+
+finish Chest purple, change chest for story purposes
+
+Items verteilen auf den Maps
+
+change TownLevel1, create TownLevel2 and all other levels
+
+change portal to level 2 -> need story, probably no portal
+
+add new rooms
+need a different night version for every room i have
+Bett implementieren
+
+sort props folder
+
+add new locations to find stuff, holes, trashcans, barrels, etc.
+
+overhaul cave -> maybe new Sprites -> cant find any for cave! -> change Location to catacombs
+
+change hero-sheet, also change Letter and Paper sprite-> beg Vi to do it for you :]
+
+add fuctionality to the key, which room/chest does it belong to -> need the story for this shit cuh
+add functionality to items in general
+
+add more story, new dialog, --need all items in place before this shit cuh
+
+BRO I NEED A STORY! I KNOW MAN, SHIT!
+
+SFX AND MUSIC!
+
+maybe side quests of sort?
+
+maybe pull a lever to open gate in catacombs/dungeon -> new area
+
+TODO change chest and purple chest to be different again

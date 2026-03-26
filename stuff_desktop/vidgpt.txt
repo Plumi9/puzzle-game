@@ -1,0 +1,56 @@
+i am creating a video game and i need a story for it:
+it is set in a fantasy world,
+here is a list of characters that you can use:
+1. an ordinary girl,
+2. a knight
+3. a healer/nurse
+4. a wizard
+5. a hunter
+and our character: just a normal guy
+
+You have to use the following locations and only these:
+1. The town, as the main big area
+2. a small forest next to the town
+3. room of the ordinary girl, where she dies
+4. a small dungeon/prison
+5. catacombs
+6. maybe the houses of the other villagers as well
+
+The following items you can use to make the story:
+1. a chest (where you can find a different item in)
+2. an (empty) potion
+3. a sword
+4. a piece of paper
+5. a scroll
+6. a ring
+7. a necklace
+8. a dirt mound (in forest) to dig
+9. a shovel to dig the mound
+10. a pouch
+11. a book
+12. a key 
+13. a fireplace (where you can extinguish it to find a key)
+
+The story shall go something along these lines:
+Our character goes into the town, collects information and explores the forest and the cave.
+The girl tells us she found a mysterious ring and necklace somewhere when exploring, she is storing them in her chest in her room for now.
+A scroll in magicians rooms tells us about a ritual which uses the power of the ring and necklace when combined, magician gives us an explanation or something.
+Other villagers tell us that, they can here talking and footsteps at night.
+The ranger tells us that the key to the dungeon has been missing, where the town keeps shovels and swords and other weapons.
+TODO ADD MORE
+
+Then on the same day, at night, the girl dies in her home.
+There will be some evidence and maybe red herrings, a bloody sword, some empty poison potions and a broken crowbar.
+In the hand of the dead girl is a piece of paper which tells us that she buried something in the forest.
+The chest in the girls house is broken open and nothing is inside of the chest anymore, the necklace and ring are missing.
+Hidden in the fireplace of the girls home, is a key.
+The dungeon door is now open weirdly and we get inside and take a shovel and notice maybe something else.
+With the shovel and the hint from the paper we go to forest, find the dirt mound, and dig up something.
+Then our character asks all the villagers again. Then reexplores the areas and maybe digs up some extra information which helps in finding the killer, and also find some other unusual stuff now that time has passed.
+
+Feel free to change elements, add more items, more clues, more hints, more characters and locations and all to make a better and more convoluted story!
+Add more things for the player to discover before the death of the girl, and more to find after the girl dies. You can add locations and even new characters/enemies if you need.
+Can you make an intriguing and convoluted story with these things, i want there to be mystery and twists and turns?
+
+I want the healer to be only one killer, and i want you to weave a story around that.
+
